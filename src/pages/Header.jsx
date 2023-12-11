@@ -1,20 +1,26 @@
-import React from "react";
 import AuthPagesBg from "../components/authPagesBg";
 import { googleIcn, logoOrangeBlack } from "../assets/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
       <AuthPagesBg />
-      <div className="flex flex-col gap-4 w-2/3 h-[90vh] items-center bg-white padding-x rounded-3xl bg-opacity-70 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] ">
-        <img src={logoOrangeBlack} alt="logo" className="w-[350px] py-14" />
+      <div className="flex flex-col gap-4 w-2/3 h-[90vh] items-center bg-white padding-x rounded-3xl bg-opacity-90 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] ">
+        <img src={logoOrangeBlack} alt="logo" className="w-[450px] py-12" />
         <div className="flex flex-row w-full justify-center items-center gap-10 padding-x">
-          <button className="bg-white text-orange font-poppins font-medium text-md px-[72px] py-[18px] rounded-[26px] shadow-lg">
+          <button
+            className="bg-white text-orange font-poppins font-medium text-md px-[72px] py-[18px] rounded-[26px] shadow-lg"
+            onClick={() => {
+              navigate("/signin");
+            }}
+          >
             Sign in
           </button>
           <button className="bg-orange text-white font-poppins font-medium text-md px-[72px] py-[18px] rounded-[26px] shadow-lg">
-            Sign in
+            Sign up
           </button>
         </div>
         <Link to="/">
