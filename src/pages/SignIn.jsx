@@ -1,8 +1,9 @@
 import AuthPagesBg from "../components/authPagesBg";
-import { googleIcn, logoOrangeBlack } from "../assets/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { logoOrangeBlack } from "../assets/icons";
+import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -20,12 +21,25 @@ const SignIn = () => {
     setEmail(e.target.value);
   };
 
+  const animationBgVariant = {
+    initialEllipse1: { left: "-7%" },
+    exitEllipse1: { left: "25%" },
+    initialEllipse2: { left: "65%" },
+    exitEllipse2: { left: "-7%" },
+  };
+
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
-      <AuthPagesBg />
+      <AuthPagesBg animationBgVariant={animationBgVariant} />
       <div className="flex flex-col gap-4 w-2/3 h-[90vh] items-center bg-white padding-x rounded-3xl bg-opacity-90 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] ">
         <div className="w-full flex justify-center items-center flex-col">
-          <img src={logoOrangeBlack} alt="logo" className="w-[350px] pt-10" />
+          <motion.img
+            src={logoOrangeBlack}
+            alt="logo"
+            className="w-[300px] pt-10"
+            exit={ { scale: 1.3, y: 30 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          />
           <h1 className="text-xl font-bold font-poppins">
             Welcome to lkasmdkn
           </h1>
@@ -61,7 +75,7 @@ const SignIn = () => {
                 id="password"
                 value={password}
                 onChange={handlePasswordChange}
-                placeholder="Enter password"
+                placeholder="Enter your password"
                 className="register-input"
               />
               <div
