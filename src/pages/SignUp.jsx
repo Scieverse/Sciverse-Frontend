@@ -121,6 +121,9 @@ const SignUp = () => {
                       name="profession"
                       id="profession"
                       onClick={toggleListProfession}
+                      onChange={({ value }) => {
+                        setData({ ...data, profession: value });
+                      }}
                       className="register-input appearance-none signup-select"
                     >
                       <option value={null}>You are a ...</option>

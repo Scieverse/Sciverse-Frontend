@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full h-[100vh] relative flex justify-center items-center ">
+    <div className="w-full h-[100vh] relative flex justify-center items-center">
       <AuthPagesBg animationBgVariant={animationBgVariant} />
       <div className="flex flex-col gap-4 w-2/3 h-[90vh] items-center bg-white padding-x rounded-3xl bg-opacity-90 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] ">
         <motion.img

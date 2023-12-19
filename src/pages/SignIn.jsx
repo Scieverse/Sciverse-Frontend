@@ -37,71 +37,76 @@ const SignIn = () => {
             src={logoOrangeBlack}
             alt="logo"
             className="w-[300px] pt-10"
-            exit={ { scale: 1.3, y: 30 }}
+            exit={{ scale: 1.5, y: 30 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
-          <h1 className="text-xl font-bold font-poppins">
+          <motion.h1
+            className="text-xl font-bold font-poppins"
+            exit={{ opacity: 0 }}
+          >
             Welcome to lkasmdkn
-          </h1>
+          </motion.h1>
         </div>
-        <form className="flex flex-col w-full justify-center items-center gap-6 padding-x">
-          <div className="flex w-9/12 flex-col">
-            <label
-              for="email"
-              className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-            >
-              Email adress:
-            </label>
-            <input
-              type="text"
-              id="email"
-              value={email}
-              onChange={handleEmailChange}
-              className="register-input"
-              placeholder="Enter your email address"
-            />
-          </div>
-
-          <div className="flex w-9/12 flex-col">
-            <label
-              for="password"
-              className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-            >
-              Password:
-            </label>
-            <div className="relative flex w-full">
-              <input
-                type={showPassword ? "text" : "password"}
-                id="password"
-                value={password}
-                onChange={handlePasswordChange}
-                placeholder="Enter your password"
-                className="register-input"
-              />
-              <div
-                onClick={togglePasswordVisibility}
-                className={`absolute inset-y-0 right-0 flex items-center mr-4 text-gray-500 cursor-pointer ${
-                  showPassword ? "text-orange" : ""
-                } `}
+        <motion.section className="w-full" exit={{ opacity: 0 }}>
+          <form className="flex flex-col w-full justify-center items-center gap-6 padding-x">
+            <div className="flex w-9/12 flex-col">
+              <label
+                for="email"
+                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
               >
-                {showPassword ? <FaEye /> : <FaEyeSlash />}
+                Email adress:
+              </label>
+              <input
+                type="text"
+                id="email"
+                value={email}
+                onChange={handleEmailChange}
+                className="register-input"
+                placeholder="Enter your email address"
+              />
+            </div>
+
+            <div className="flex w-9/12 flex-col">
+              <label
+                for="password"
+                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
+              >
+                Password:
+              </label>
+              <div className="relative flex w-full">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  placeholder="Enter your password"
+                  className="register-input"
+                />
+                <div
+                  onClick={togglePasswordVisibility}
+                  className={`absolute inset-y-0 right-0 flex items-center mr-4 text-gray-500 cursor-pointer ${
+                    showPassword ? "text-orange" : ""
+                  } `}
+                >
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+                </div>
               </div>
             </div>
+          </form>
+          <div
+            className="w-full flex justify-center items-center gap-6 py-3"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <button className="font-poppins font-medium text-lg px-12">
+              Cancel
+            </button>
+            <button className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full">
+              Sign in
+            </button>
           </div>
-        </form>
-        <div
-          className="w-full flex justify-center items-center gap-6 py-3"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <button className="font-poppins font-medium text-lg px-12">
-            Cancel
-          </button>
-          <button className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full">
-            Sign in
-          </button>
-        </div>
+        </motion.section>
       </div>
     </div>
   );
