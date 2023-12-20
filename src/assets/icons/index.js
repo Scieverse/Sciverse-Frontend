@@ -1,7 +1,5 @@
 import googleIcn from "./googleIcn.svg";
 import logoOrangeBlack from "./logoOrangeBlack.svg";
-import Ellipse1 from "./Ellipse1.png";
-import Ellipse2 from "./Ellipse2.png";
+import profilePic from "./download.jpg";
 
-
-export { Ellipse1,Ellipse2,googleIcn,logoOrangeBlack };
+export { googleIcn, logoOrangeBlack, profilePic };

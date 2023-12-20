@@ -205,11 +205,9 @@ const SignUp = () => {
                 />
                 <div
                   onClick={togglePasswordVisibility}
-                  className={`absolute inset-y-0 right-0 flex items-center mr-4 text-gray-500 cursor-pointer ${
-                    showPassword ? "text-orange" : ""
-                  } `}
+                  className={`absolute inset-y-0 right-0 flex items-center mr-4 text-gray-500 cursor-pointer`}
                 >
-                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </div>
               </div>
             </div>
@@ -233,11 +231,9 @@ const SignUp = () => {
                 />
                 <div
                   onClick={toggleConfirmPasswordVisibility}
-                  className={`absolute inset-y-0 right-0 flex items-center mr-4 text-gray-500 cursor-pointer ${
-                    showConfirmPassword ? "text-orange" : ""
-                  } `}
+                  className={`absolute inset-y-0 right-0 flex items-center mr-4 text-gray-500 cursor-pointer`}
                 >
-                  {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
+                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                 </div>
               </div>
             </div>
