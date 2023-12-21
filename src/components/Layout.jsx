@@ -1,30 +1,33 @@
 import { Link } from "react-router-dom";
-import { logoOrangeBlack, profilePic } from "../assets/icons";
+import { logoOrangeBlack, logoSOrange, profilePic } from "../assets/icons";
 import { MdGroups } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { navLinks } from "../constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SearchBar from "./SearchBar";
 import { getTitleIcon } from "../functions/layoutFct";
 import { FilterProvider } from "../contexts/FilterContext";
-function Layout({ profile, title }) {
-  const { role } = profile;
-  const [selectedItem, setSelectedItem] = useState(title);
-  
-  const TitleIcon = getTitleIcon(title);
- 
+import { UserContext } from "../contexts/UserContext";
 
-  
+function Layout({ title }) {
+  const { userProfile } = useContext(UserContext);
+
+  const { role } = userProfile;
+  //Getting page title and icon
+  const [selectedItem, setSelectedItem] = useState(title);
+  const TitleIcon = getTitleIcon(title);
+
   return (
     <FilterProvider>
       <div
         className={
-          "h-screen w-1/3 sm:w-1/3 md:w-1/4 xl:w-[250px] sm:flex flex-col text-black duration-1000 ease-in-out"
+          "h-screen w-2/12 sm:w-2/12 md:w-1/4 xl:w-[250px] sm:flex flex-col text-black"
         }
       >
-        <div className="side-bar h-full w-full flex flex-col items-center">
-          <img src={logoOrangeBlack} className=" w-2/3 py-4" />
-          <div className="flex flex-col h-1/2 items-center justify-between mt-10">
+        <div className="side-bar w-full h-full flex flex-col gap-10 items-center">
+          <img src={logoOrangeBlack} className=" w-2/3 py-4 max-md:hidden" />
+          <img src={logoSOrange} className=" w-7/12 py-4 md:hidden" />
+          <div className="flex flex-col h-1/2 items-center justify-start gap-10 2xl:gap-y-16 ">
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (
@@ -37,7 +40,7 @@ function Layout({ profile, title }) {
                   to={link.href}
                 >
                   <Icon className="w-[22px] h-[22px]" />
-                  {link.label}
+                  <p className="max-md:hidden">{link.label}</p>
                 </Link>
               );
             })}
@@ -52,7 +55,7 @@ function Layout({ profile, title }) {
                 to="/moderators"
               >
                 <MdGroups className="w-[24px] h-[24px]" />
-                Moderators
+                <p className="max-md:hidden">Moderators</p>
               </Link>
             ) : (
               ""
@@ -60,28 +63,35 @@ function Layout({ profile, title }) {
           </div>
         </div>
       </div>
-      <div className="fixed w-8/12 top-4 right-4 flex gap-10 justify-between items-center">
-        <div className="rounded-full shadow-[0_0_25px_-7px_rgba(223,125,0,0.7)]">
-          <SearchBar />
-        </div>
 
-        <div className="flex flex-row justify-center items-center gap-2 p-2 rounded-full cursor-pointer shadow-[0_0_25px_-7px_rgba(223,125,0,0.7)] hover:text-orange">
-          <div className="w-[30px] h-[30px] justify-center items-center">
-            <img
-              src={profilePic}
-              alt=""
-              className="w-full h-full rounded-full object-center object-cover"
-            />
+      <div className="w-full flex flex-col justify-cetner items-center py-5 gap-8">
+        <div className="w-full px-5 flex justify-center items-center max-xl:justify-start ">
+          <div className="w-fit rounded-full shadow-[0_0_25px_-7px_rgba(223,125,0,0.7)]">
+            <SearchBar />
           </div>
-          <p className="font-medium font-poppins">{profile.username}</p>
-          <IoIosArrowDown />
+                      
+          <div className="fixed right-4 flex flex-row justify-center items-center gap-2 p-1.5 rounded-full cursor-pointer shadow-[0_0_25px_-7px_rgba(223,125,0,0.7)] hover:text-orange max-lg:right-2">
+            <div className="w-[30px] h-[30px] justify-center items-center">
+              <img
+                src={profilePic}
+                alt=""
+                className="w-full h-full rounded-full object-center object-cover"
+              />
+            </div>
+            <p className="font-medium font-poppins max-lg:hidden">
+              {userProfile.username}
+            </p>
+            <IoIosArrowDown className="max-sm:hidden" />
+          </div>
         </div>
-      </div>
 
-      <div className="mt-28 w-full h-fit flex flex-col justify-center ">
-        <div className=" bg-orange text-white flex justify-start p-4 items-center rounded-t-2xl">
-          <TitleIcon className="w-6 h-6 mx-2" />
-          <p className=" font-bold text-2xl font-poppins">{title}</p>
+        <div className="w-full h-full flex flex-col justify-start">
+          <div className=" bg-orange text-white flex justify-start p-4 items-center rounded-t-2xl max-lg:p-2">
+            <TitleIcon className="w-6 h-6 mx-2 max-lg:w-5" />
+            <p className=" font-bold text-2xl font-poppins max-lg:text-xl">
+              {title}
+            </p>
+          </div>
         </div>
       </div>
     </FilterProvider>

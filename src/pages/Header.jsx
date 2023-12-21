@@ -2,12 +2,23 @@ import AuthPagesBg from "../components/authPagesBg";
 import { googleIcn, logoOrangeBlack } from "../assets/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
-
   const [signIn, setSignIn] = useState(false);
+
+  // useEffect(() => {
+  //   const handleSignInClick = () => {
+  //     setSignIn(true); // Set signIn state to true
+  //     navigate("/signin"); // Navigate to the sign-in page
+  //   };
+
+  //   const handleSignUpClick = () => {
+  //     setSignIn(false); // Set signIn state to false
+  //     navigate("/signup"); // Navigate to the sign-up page
+  //   };
+  // }, []);
 
   const animationBgVariant = {
     initialEllipse1: { x: 0 },
@@ -24,7 +35,11 @@ const Header = () => {
           src={logoOrangeBlack}
           alt="logo"
           className="w-[450px] py-12"
-          exit={signIn ? { scale: 0.7, y: -30 } : { scale: 0.7, y: "50%",x:"-50%" }}
+          exit={
+            signIn
+              ? { scale: 0.7, y: -30 }
+              : { scale: 0.7, y: "50%", x: "-50%" }
+          }
           transition={{ duration: 0.3, ease: "easeInOut" }}
         />
         <div className="flex flex-row w-full justify-center items-center gap-10 padding-x">
@@ -40,7 +55,7 @@ const Header = () => {
           <button
             className="bg-orange text-white font-poppins font-medium text-md px-[72px] py-[18px] rounded-[26px] shadow-lg"
             onClick={() => {
-              setSignIn(false);
+              setSignIn(fals);
               navigate("/signup");
             }}
           >

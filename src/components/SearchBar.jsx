@@ -14,10 +14,10 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative h-full w-full flex items-center gap-4 pl-6 ">
+    <div className="relative h-full w-full flex items-center gap-4 pl-6 max-md:pl-4 max-md:gap-2 ">
       <input
         type="text"
-        className="focus:outline-none w-[400px] font-poppins text-black text-md"
+        className="focus:outline-none w-[400px] font-poppins text-black text-md max-lg:w-[250px] max-md:w-[300px] max-sm:w-[180px]"
         placeholder="Search"
       />
       <div className="cursor-pointer">
@@ -25,7 +25,7 @@ const SearchBar = () => {
       </div>
       <div className="relative flex items-center justify-center">
         <div
-          className="px-5 py-2.5 flex items-center justify-center gap-2 cursor-pointer text-gray-800 bg-gray-100 rounded-r-full"
+          className="px-5 py-2.5 flex items-center justify-center gap-2 cursor-pointer text-gray-800 bg-gray-100 rounded-r-full max-md:px-2"
           onClick={() => setToggle(!toggle)}
         >
           All
