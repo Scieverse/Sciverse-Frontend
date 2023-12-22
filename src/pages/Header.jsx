@@ -1,4 +1,4 @@
-import AuthPagesBg from "../components/authPagesBg";
+import AuthPagesBg from "../components/AuthPagesBg";
 import { googleIcn, logoOrangeBlack } from "../assets/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
