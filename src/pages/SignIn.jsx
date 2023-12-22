@@ -1,6 +1,6 @@
 import AuthPagesBg from "../components/authPagesBg";
-import { logoOrangeBlack } from "../assets/icons";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { logoOrangeBlack, profilePic } from "../assets/icons";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -12,7 +12,11 @@ const SignIn = () => {
   let userProfileData;
 
   const handleSignIn = async () => {
-    userProfileData = { role: "admin", username: "imadeddine" };
+    userProfileData = {
+      role: "admin",
+      username: "imadeddine",
+      profilePicture: profilePic,
+    };
     await logIn(userProfileData);
   };
 

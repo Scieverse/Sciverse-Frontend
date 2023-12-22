@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { logoOrangeBlack, logoSOrange, profilePic } from "../assets/icons";
+import { logoOrangeBlack, logoSOrange } from "../assets/icons";
 import { MdGroups } from "react-icons/md";
-import { IoIosArrowDown } from "react-icons/io";
 import { navLinks } from "../constants";
 import { useContext, useState } from "react";
 import SearchBar from "./SearchBar";
 import { getTitleIcon } from "../functions/layoutFct";
 import { FilterProvider } from "../contexts/FilterContext";
+import ProfileButton from "./ProfileButton";
 import { UserContext } from "../contexts/UserContext";
 
 function Layout({ title }) {
@@ -35,7 +35,7 @@ function Layout({ title }) {
                   className={`menu-text ${
                     selectedItem === link.label
                       ? "text-orange font-bold"
-                      : "text-slate-gray"
+                      : ""
                   }`}
                   to={link.href}
                 >
@@ -50,7 +50,7 @@ function Layout({ title }) {
                 className={`menu-text ${
                   selectedItem === "Moderators"
                     ? "text-orange font-bold"
-                    : "text-slate-gray"
+                    : ""
                 }`}
                 to="/moderators"
               >
@@ -70,19 +70,7 @@ function Layout({ title }) {
             <SearchBar />
           </div>
                       
-          <div className="fixed right-4 flex flex-row justify-center items-center gap-2 p-1.5 rounded-full cursor-pointer shadow-[0_0_25px_-7px_rgba(223,125,0,0.7)] hover:text-orange max-lg:right-2">
-            <div className="w-[30px] h-[30px] justify-center items-center">
-              <img
-                src={profilePic}
-                alt=""
-                className="w-full h-full rounded-full object-center object-cover"
-              />
-            </div>
-            <p className="font-medium font-poppins max-lg:hidden">
-              {userProfile.username}
-            </p>
-            <IoIosArrowDown className="max-sm:hidden" />
-          </div>
+          <ProfileButton />
         </div>
 
         <div className="w-full h-full flex flex-col justify-start">

@@ -15,7 +15,6 @@ const UserProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setUserProfile(null);
     setIsLoggedIn(false);
   };
 
