@@ -8,18 +8,6 @@ const Header = () => {
   const navigate = useNavigate();
   const [signIn, setSignIn] = useState(false);
 
-  // useEffect(() => {
-  //   const handleSignInClick = () => {
-  //     setSignIn(true); // Set signIn state to true
-  //     navigate("/signin"); // Navigate to the sign-in page
-  //   };
-
-  //   const handleSignUpClick = () => {
-  //     setSignIn(false); // Set signIn state to false
-  //     navigate("/signup"); // Navigate to the sign-up page
-  //   };
-  // }, []);
-
   const animationBgVariant = {
     initialEllipse1: { x: 0 },
     exitEllipse1: { left: "-7%" },
@@ -55,7 +43,7 @@ const Header = () => {
           <button
             className="bg-orange text-white font-poppins font-medium text-md px-[72px] py-[18px] rounded-[26px] shadow-lg"
             onClick={() => {
-              setSignIn(fals);
+              setSignIn(false);
               navigate("/signup");
             }}
           >

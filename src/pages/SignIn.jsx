@@ -1,21 +1,25 @@
 import AuthPagesBg from "../components/authPagesBg";
 import { logoOrangeBlack } from "../assets/icons";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { UserContext } from "../contexts/UserContext";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { setUserProfile } = useContext(UserContext);
+  const { logIn, isLoggedIn } = useContext(UserContext);
+  let userProfileData;
 
-  const handleSignIn = () => {
-    const userProfileData = { role: "admin", username: "imadeddine" };
-    setUserProfile(userProfileData);
-    navigate("/layout");
+  const handleSignIn = async () => {
+    userProfileData = { role: "admin", username: "imadeddine" };
+    await logIn(userProfileData);
   };
-  
+
+  useEffect(() => {
+    if (isLoggedIn) navigate('/layout');
+  }, [isLoggedIn]);
+
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -36,8 +40,6 @@ const SignIn = () => {
     initialEllipse2: { left: "65%" },
     exitEllipse2: { left: "-7%" },
   };
-
-  
 
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
@@ -111,12 +113,16 @@ const SignIn = () => {
             <button className="font-poppins font-medium text-lg px-12">
               Cancel
             </button>
-            <button
-              className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full"
-              onClick={handleSignIn()}
-            >
-              Sign in
-            </button>
+            <Link to="/layout">
+              <button
+                className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full"
+                onClick={() => {
+                  handleSignIn();
+                }}
+              >
+                Sign in
+              </button>
+            </Link>
           </div>
         </motion.section>
       </div>

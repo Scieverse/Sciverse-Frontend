@@ -248,7 +248,12 @@ const SignUp = () => {
             <button className="font-poppins font-medium text-lg px-12">
               Cancel
             </button>
-            <button className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full">
+            <button
+              className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full"
+              onClick={() => {
+                navigate("/signin");
+              }}
+            >
               Continue
             </button>
           </div>

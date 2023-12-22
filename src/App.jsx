@@ -13,7 +13,6 @@ import { UserProvider } from "./contexts/UserContext";
 
 function App() {
   const location = useLocation();
-  const profile = { role: "admin", username: "yacine" };
   return (
     <div className="flex w-screen overflow-hidden">
       <UserProvider>
