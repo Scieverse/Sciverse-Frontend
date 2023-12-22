@@ -1,4 +1,4 @@
-import AuthPagesBg from "../components/authPagesBg";
+import AuthPagesBg from "../components/AuthPagesBg";
 import { logoOrangeBlack } from "../assets/icons";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
