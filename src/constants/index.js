@@ -16,3 +16,45 @@ export const filterInitialization = [
   { checked: true, label: "Option 2" },
   { checked: true, label: "Option 3" },
 ];
+
+export const variantSignLgAbove = {
+  initialEllipse1: { left: "-7%" },
+  exitEllipse1: { left: "25%" },
+  initialEllipse2: { left: "65%" },
+  exitEllipse2: { left: "-5%" },
+};
+
+export const variantSignMaxSm = {
+  initialEllipse1: { left: "-143%" },
+  exitEllipse1: { left: "0%" },
+  initialEllipse2: { left: "40%" },
+  exitEllipse2: { left: "-55%" },
+};
+
+export const variantSignMaxLg = {
+  initialEllipse1: { left: "-80%" },
+  exitEllipse1: { left: "18%" },
+  initialEllipse2: { left: "50%" },
+  exitEllipse2: { left: "-50%" },
+};
+
+export const variantHeaderLgAbove = {
+  initialEllipse1: { x: 0 },
+  exitEllipse1: { left: "-7%" },
+  initialEllipse2: { x: 0 },
+  exitEllipse2: { left: "65%" },
+};
+
+export const variantHeaderMaxSm = {
+  initialEllipse1: { x: 0 },
+  exitEllipse1: { left: "-143%" },
+  initialEllipse2: { x: 0 },
+  exitEllipse2: { left: "40%" },
+};
+
+export const variantHeaderMaxLg = {
+  initialEllipse1: { x: 0 },
+  exitEllipse1: { left: "-80%" },
+  initialEllipse2: { x: 0 },
+  exitEllipse2: { left: "50%" },
+};
