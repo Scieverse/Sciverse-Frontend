@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { variantSignUpLgAbove, variantSignUpMaxLg, variantSignUpMaxSm } from "../constants";
+import { variantSignLgAbove, variantSignMaxLg, variantSignMaxSm } from "../constants";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -23,11 +23,11 @@ const SignUp = () => {
   });
   const [variant, setVariant] = useState(() => {
     if (window.innerWidth < 640) {
-      return variantSignUpMaxSm;
+      return variantSignMaxSm;
     } else if (window.innerWidth < 1024) {
-      return variantSignUpMaxLg;
+      return variantSignMaxLg;
     } else {
-      return variantSignUpLgAbove;
+      return variantSignLgAbove;
     }
   });
 
@@ -78,14 +78,25 @@ const SignUp = () => {
             src={logoOrangeBlack}
             alt="logo"
             className="w-[300px]"
-            exit={{ scale: 1.3, y: "-60%", x: "50%" }}
+            exit={() => {
+              if (variant == variantSignLgAbove)
+                return { scale: 1.3, y: "-60%", x: "50%" };
+              else return { y: "90%" };
+            }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
-          <h1 className="text-xl font-bold font-poppins">
+          <motion.h1
+            className="text-xl font-bold font-poppins"
+            exit={{ opacity: 0 }}
+          >
             Welcome to lkasmdkn
-          </h1>
+          </motion.h1>
         </div>
-        <div className="w-full flex-1">
+        <motion.div
+          className="w-full flex-1"
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           <h1 className="font-poppins font-bold text-2xl mb-4 max-lg:text-xl">
             Personal information
           </h1>
@@ -261,7 +272,7 @@ const SignUp = () => {
               Continue
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

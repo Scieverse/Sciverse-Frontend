@@ -17,46 +17,25 @@ export const filterInitialization = [
   { checked: true, label: "Option 3" },
 ];
 
-export const variantSignInLgAbove = {
+export const variantSignLgAbove = {
   initialEllipse1: { left: "-7%" },
   exitEllipse1: { left: "25%" },
   initialEllipse2: { left: "65%" },
-  exitEllipse2: { left: "-7%" },
+  exitEllipse2: { left: "-5%" },
 };
 
-export const variantSignInMaxSm = {
+export const variantSignMaxSm = {
   initialEllipse1: { left: "-143%" },
   exitEllipse1: { left: "0%" },
   initialEllipse2: { left: "40%" },
   exitEllipse2: { left: "-55%" },
 };
 
-export const variantSignInMaxLg = {
-  initialEllipse1: { left: "-7%" },
-  exitEllipse1: { left: "25%" },
-  initialEllipse2: { left: "65%" },
-  exitEllipse2: { left: "-7%" },
-};
-
-export const variantSignUpLgAbove = {
-  initialEllipse1: { left: "-7%" },
-  exitEllipse1: { left: "25%" },
-  initialEllipse2: { left: "65%" },
-  exitEllipse2: { left: "-7%" },
-};
-
-export const variantSignUpMaxSm = {
-  initialEllipse1: { left: "-143%" },
-  exitEllipse1: { left: "0%" },
-  initialEllipse2: { left: "40%" },
-  exitEllipse2: { left: "-55%" },
-};
-
-export const variantSignUpMaxLg = {
-  initialEllipse1: { left: "-7%" },
-  exitEllipse1: { left: "25%" },
-  initialEllipse2: { left: "65%" },
-  exitEllipse2: { left: "-7%" },
+export const variantSignMaxLg = {
+  initialEllipse1: { left: "-80%" },
+  exitEllipse1: { left: "18%" },
+  initialEllipse2: { left: "50%" },
+  exitEllipse2: { left: "-50%" },
 };
 
 export const variantHeaderLgAbove = {
@@ -74,8 +53,8 @@ export const variantHeaderMaxSm = {
 };
 
 export const variantHeaderMaxLg = {
-  initialEllipse1: { left: "-7%" },
-  exitEllipse1: { left: "25%" },
-  initialEllipse2: { left: "65%" },
-  exitEllipse2: { left: "-7%" },
+  initialEllipse1: { x: 0 },
+  exitEllipse1: { left: "-80%" },
+  initialEllipse2: { x: 0 },
+  exitEllipse2: { left: "50%" },
 };

@@ -6,9 +6,9 @@ import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { UserContext } from "../contexts/UserContext";
 import {
-  variantSignInLgAbove,
-  variantSignInMaxLg,
-  variantSignInMaxSm,
+  variantSignLgAbove,
+  variantSignMaxLg,
+  variantSignMaxSm,
 } from "../constants";
 
 const SignIn = () => {
@@ -45,11 +45,11 @@ const SignIn = () => {
 
   const [variant, setVariant] = useState(() => {
     if (window.innerWidth < 640) {
-      return variantSignInMaxSm;
+      return variantSignMaxSm;
     } else if (window.innerWidth < 1024) {
-      return variantSignInMaxLg;
+      return variantSignMaxLg;
     } else {
-      return variantSignInLgAbove;
+      return variantSignLgAbove;
     }
   });
 
@@ -62,17 +62,26 @@ const SignIn = () => {
             src={logoOrangeBlack}
             alt="logo"
             className="w-[300px] pt-10"
-            exit={{ scale: 1.5, y: 30 }}
+            exit={() => {
+              if (variant == variantSignLgAbove) return { scale: 1.5, y: 30 };
+            }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
           <motion.h1
             className="text-xl font-bold font-poppins max-sm:text-lg"
-            exit={{ opacity: 0 }}
+            exit={() => {
+              if (variant == variantSignLgAbove) return { opacity: 0 };
+            }}
           >
             Welcome to lkasmdkn
           </motion.h1>
         </div>
-        <motion.section className="w-full flex flex-col gap-4" exit={{ opacity: 0 }}>
+        <motion.section
+          className="w-full flex flex-col gap-4"
+          exit={() => {
+            if (variant == variantSignLgAbove) return { opacity: 0 };
+          }}
+        >
           <form className="flex flex-col w-full justify-center items-center gap-6 padding-x max-lg:px-0">
             <div className="flex w-9/12 flex-col max-md:w-full">
               <label
