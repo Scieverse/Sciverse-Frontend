@@ -28,11 +28,11 @@
 
 @layer utilities {
   .padding {
-    @apply xl:px-16 px-8 xl:py-24 py-12;
+    @apply xl:px-16 px-10 xl:py-24 py-12;
   }
 
   .padding-x {
-    @apply xl:px-16 px-8;
+    @apply xl:px-16 px-10;
   }
 
   .padding-y {
@@ -40,11 +40,11 @@
   }
 
   .padding-l {
-    @apply xl:pl-16 pl-8;
+    @apply xl:pl-16 pl-10;
   }
 
   .padding-r {
-    @apply xl:pr-16 pr-8;
+    @apply xl:pr-16 pr-10;
   }
 
   .padding-t {

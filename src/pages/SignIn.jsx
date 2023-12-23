@@ -5,6 +5,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { UserContext } from "../contexts/UserContext";
+import {
+  variantSignInLgAbove,
+  variantSignInMaxLg,
+  variantSignInMaxSm,
+} from "../constants";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -21,7 +26,7 @@ const SignIn = () => {
   };
 
   useEffect(() => {
-    if (isLoggedIn) navigate('/layout');
+    if (isLoggedIn) navigate("/layout");
   }, [isLoggedIn]);
 
   const [showPassword, setShowPassword] = useState(false);
@@ -38,16 +43,19 @@ const SignIn = () => {
     setEmail(e.target.value);
   };
 
-  const animationBgVariant = {
-    initialEllipse1: { left: "-7%" },
-    exitEllipse1: { left: "25%" },
-    initialEllipse2: { left: "65%" },
-    exitEllipse2: { left: "-7%" },
-  };
+  const [variant, setVariant] = useState(() => {
+    if (window.innerWidth < 640) {
+      return variantSignInMaxSm;
+    } else if (window.innerWidth < 1024) {
+      return variantSignInMaxLg;
+    } else {
+      return variantSignInLgAbove;
+    }
+  });
 
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
-      <AuthPagesBg animationBgVariant={animationBgVariant} />
+      <AuthPagesBg animationBgVariant={variant} />
       <div className="flex flex-col gap-4 w-2/3 h-[90vh] items-center bg-white padding-x rounded-3xl bg-opacity-90 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] ">
         <div className="w-full flex justify-center items-center flex-col">
           <motion.img

@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { variantSignUpLgAbove, variantSignUpMaxLg, variantSignUpMaxSm } from "../constants";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -19,6 +20,15 @@ const SignUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
+  });
+  const [variant, setVariant] = useState(() => {
+    if (window.innerWidth < 640) {
+      return variantSignUpMaxSm;
+    } else if (window.innerWidth < 1024) {
+      return variantSignUpMaxLg;
+    } else {
+      return variantSignUpLgAbove;
+    }
   });
 
   const togglePasswordVisibility = () => {
@@ -58,16 +68,10 @@ const SignUp = () => {
     console.log(data);
   };
 
-  const animationBgVariant = {
-    initialEllipse1: { left: "-7%" },
-    exitEllipse1: { left: "25%" },
-    initialEllipse2: { left: "65%" },
-    exitEllipse2: { left: "-7%" },
-  };
 
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
-      <AuthPagesBg animationBgVariant={animationBgVariant} />
+      <AuthPagesBg animationBgVariant={variant} />
       <div className="flex flex-row gap-10 w-2/3 h-[93vh] justify-center items-center padding-x bg-white rounded-3xl bg-opacity-90 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] ">
         <div className="flex w-4.5/12 justify-center items-center flex-col">
           <motion.img
