@@ -127,7 +127,7 @@ const SignIn = () => {
             </button>
             <Link to="/layout">
               <button
-                className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full max-lg:px-8 max-sm:px-6"
+                className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full max-lg:px-8 max-sm:px-6 max-lg:py-3"
                 onClick={() => {
                   handleSignIn();
                 }}

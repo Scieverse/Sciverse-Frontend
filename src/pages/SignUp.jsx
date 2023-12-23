@@ -72,7 +72,7 @@ const SignUp = () => {
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
       <AuthPagesBg animationBgVariant={variant} />
-      <div className="flex flex-row gap-10 w-2/3 h-[93vh] justify-center items-center padding-x bg-white rounded-3xl bg-opacity-90 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] ">
+      <div className="flex flex-row gap-10 w-2/3 h-[93vh] justify-center items-center padding-x bg-white rounded-3xl bg-opacity-90 shadow-[0_0_45px_-5px_rgba(223,125,0,0.7)] max-lg:w-10/12 max-lg:h-[85vh] max-lg:flex-col max-lg:py-8 max-lg:px-6 max-md:gap-6">
         <div className="flex w-4.5/12 justify-center items-center flex-col">
           <motion.img
             src={logoOrangeBlack}
@@ -86,7 +86,7 @@ const SignUp = () => {
           </h1>
         </div>
         <div className="w-full flex-1">
-          <h1 className="font-poppins font-bold text-2xl mb-4">
+          <h1 className="font-poppins font-bold text-2xl mb-4 max-lg:text-xl">
             Personal information
           </h1>
           <form className="flex flex-col w-full justify-center items-center gap-4">
@@ -249,11 +249,11 @@ const SignUp = () => {
               navigate("/");
             }}
           >
-            <button className="font-poppins font-medium text-lg px-12">
+            <button className="font-poppins font-medium text-lg px-12 max-lg:px-8 max-sm:px-6">
               Cancel
             </button>
             <button
-              className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full"
+              className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full max-lg:px-8 max-sm:px-6 max-lg:py-3"
               onClick={() => {
                 navigate("/signin");
               }}
