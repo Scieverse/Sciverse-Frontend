@@ -1,6 +1,4 @@
-import articles from './articles.json';
-
-function Card() {
+function Card({ articles }){
   return (
     <div className='h-full w-full flex flex-col justify-center font-poppins bg-[#DEDEDE]'>
       {articles.map(article => {
