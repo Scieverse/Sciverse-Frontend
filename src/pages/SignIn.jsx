@@ -10,10 +10,13 @@ import {
   variantSignMaxLg,
   variantSignMaxSm,
 } from "../constants";
+//import { replaceStackWithRoute } from "../functions/authFct";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const { logIn, isLoggedIn } = useContext(UserContext);
+  //const replaceAction = replaceStackWithRoute('/layout');
+
   let userProfileData;
 
   const handleSignIn = async () => {
