@@ -1,10 +1,8 @@
 import React, { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
