@@ -18,7 +18,7 @@ const SearchBar = () => {
     <div className="relative h-full w-full flex items-center gap-4 pl-6 max-md:pl-4 max-md:gap-2 ">
       <input
         type="text"
-        className="focus:outline-none w-[400px] font-poppins text-black text-md max-lg:w-[250px] max-md:w-[300px] max-sm:w-[180px]"
+        className="focus:outline-none w-[400px] font-poppins text-black text-md max-lg:w-[250px] max-md:w-[290px] max-sm:w-[170px]"
         placeholder="Search"
       />
       <div className="cursor-pointer">
