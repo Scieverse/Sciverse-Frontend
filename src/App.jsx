@@ -21,7 +21,36 @@ function App() {
             <Route exact path={routes.SIGNIN} element={<SignIn />} />
             <Route exact path={routes.SIGNUP} element={<SignUp />} />
             <Route exact path="/" element={<PrivateRoute />}>
-              <Route exact path="layout" element={<Layout title={"Home"} />} />
+              <Route
+                exact
+                path={routes.HOME}
+                element={<Layout title={"Home"} />}
+              />
+              <Route
+                exact
+                path={routes.FAVORITE}
+                element={<Layout title={"Favorite"} />}
+              />
+              <Route
+                exact
+                path={routes.HISTORY}
+                element={<Layout title={"History"} />}
+              />
+              <Route
+                exact
+                path={routes.CATEGORIES}
+                element={<Layout title={"Categories"} />}
+              />
+              <Route
+                exact
+                path={routes.MODERATORS}
+                element={<Layout title={"Moderators"} />}
+              />
+              <Route
+                exact
+                path={routes.SETTINGS}
+                element={<Layout title={"Settings"} />}
+              />
             </Route>
           </Routes>
         </AnimatePresence>

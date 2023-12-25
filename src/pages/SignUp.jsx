@@ -13,6 +13,7 @@ import {
   variantSignMaxSm,
 } from "../constants";
 import { UserContext } from "../contexts/UserContext";
+import { routes } from "../routes/routes";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const SignUp = () => {
       //logic with backend
       setFormSubmitted(true);
     }
-    if (formSubmitted && isLoggedIn) navigate("/layout");
+    if (formSubmitted && isLoggedIn) navigate(routes.HOME);
     else alert("Une erreur c'est produit");
   };
 
@@ -291,7 +292,7 @@ const SignUp = () => {
             </div>
             {/* ************************************* */}
             <div className="w-full flex justify-center items-center gap-6">
-              <Link to="/">
+              <Link to={routes.HEADER}>
                 <button className="font-poppins font-medium text-lg px-12 max-lg:px-8 max-sm:px-6">
                   Cancel
                 </button>

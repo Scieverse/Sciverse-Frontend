@@ -8,6 +8,7 @@ import {
   variantHeaderMaxLg,
   variantHeaderMaxSm,
 } from "../constants";
+import { routes } from "../routes/routes";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const Header = () => {
             className="bg-white text-orange font-poppins font-medium text-md px-[72px] py-[18px] rounded-[26px] shadow-lg max-lg:w-full"
             onClick={() => {
               setSignIn(true);
-              navigate("/signin");
+              navigate(routes.SIGNIN);
             }}
           >
             Sign in
@@ -58,13 +59,13 @@ const Header = () => {
             className="bg-orange text-white font-poppins font-medium text-md px-[72px] py-[18px] rounded-[26px] shadow-lg max-lg:w-full"
             onClick={() => {
               setSignIn(false);
-              navigate("/signup");
+              navigate(routes.SIGNUP);
             }}
           >
             Sign up
           </button>
         </div>
-        <Link to="/" className="max-lg:w-full lg:px-0 md:px-24">
+        <Link to={routes.HEADER} className="max-lg:w-full lg:px-0 md:px-24">
           <div className="flex flex-row gap-2 lg:gap-4 justify-center items-center border-2 border-orange border-opacity-50 lg:px-[72px] py-2.5 rounded-[26px] cursor-pointer">
             <img
               src={googleIcn}
