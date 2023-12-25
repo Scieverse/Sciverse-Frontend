@@ -1,6 +1,6 @@
 import AuthPagesBg from "../components/AuthPagesBg";
 import { logoOrangeBlack, profilePic } from "../assets/icons";
-import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { motion } from "framer-motion";
@@ -10,6 +10,7 @@ import {
   variantSignMaxLg,
   variantSignMaxSm,
 } from "../constants";
+import { routes } from "../routes/routes";
 //import { replaceStackWithRoute } from "../functions/authFct";
 
 const SignIn = () => {
@@ -31,7 +32,7 @@ const SignIn = () => {
       profilePicture: profilePic,
     };
     await logIn(userProfileData);
-    if (isLoggedIn) navigate("/layout");
+    if (isLoggedIn) navigate(routes.HOME);
     else
       alert(
         "Your email or password are incorrect please check your infrormation"
@@ -129,7 +130,7 @@ const SignIn = () => {
             </div>
           </form>
           <div className="w-full flex justify-center items-center gap-6 py-3">
-            <Link to="/">
+            <Link to={routes.HEADER}>
               <button className="font-poppins font-medium text-lg px-12 max-lg:px-8 max-sm:px-6">
                 Cancel
               </button>

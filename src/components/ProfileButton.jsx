@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoSettings } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
+import { routes } from "../routes/routes";
 
 const ProfileButton = () => {
   const { userProfile, logOut } = useContext(UserContext);
@@ -32,7 +33,7 @@ const ProfileButton = () => {
       {profileToggle && (
         <div className="absolute right-0 mt-0.5 top-[100%] flex flex-col px-3 py-2 w-full gap-1 rounded-xl bg-white shadow-xl max-lg:w-fit ">
           <Link
-            to="/settings"
+            to={routes.SETTINGS}
             className="flex flex-row gap-1 items-center font-poppins font-medium hover:text-orange"
           >
             <IoSettings />
@@ -40,7 +41,7 @@ const ProfileButton = () => {
           </Link>
           <div className="w-full h-[1px] bg-grey" />
           <Link
-            to="/"
+            to={routes.HEADER}
             className="flex flex-row gap-1 items-center font-poppins font-medium hover:text-orange"
             onClick={() => {
               logOut();

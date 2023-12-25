@@ -8,6 +8,7 @@ import { getTitleIcon } from "../functions/layoutFct";
 import { FilterProvider } from "../contexts/FilterContext";
 import ProfileButton from "./ProfileButton";
 import { UserContext } from "../contexts/UserContext";
+import { routes } from "../routes/routes";
 
 function Layout({ title }) {
   const { userProfile } = useContext(UserContext);
@@ -33,9 +34,7 @@ function Layout({ title }) {
               return (
                 <Link
                   className={`menu-text ${
-                    selectedItem === link.label
-                      ? "text-orange font-bold"
-                      : ""
+                    selectedItem === link.label ? "text-orange font-bold" : ""
                   }`}
                   to={link.href}
                 >
@@ -48,11 +47,9 @@ function Layout({ title }) {
             {role === "admin" ? (
               <Link
                 className={`menu-text ${
-                  selectedItem === "Moderators"
-                    ? "text-orange font-bold"
-                    : ""
+                  selectedItem === "Moderators" ? "text-orange font-bold" : ""
                 }`}
-                to="/moderators"
+                to={routes.MODERATORS}
               >
                 <MdGroups className="w-[24px] h-[24px]" />
                 <p className="max-md:hidden">Moderators</p>
@@ -69,7 +66,7 @@ function Layout({ title }) {
           <div className="w-fit rounded-full shadow-[0_0_25px_-7px_rgba(223,125,0,0.7)]">
             <SearchBar />
           </div>
-                      
+
           <ProfileButton />
         </div>
 
