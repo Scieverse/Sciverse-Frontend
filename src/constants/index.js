@@ -17,6 +17,18 @@ export const filterInitialization = [
   { checked: true, label: "Option 3" },
 ];
 
+export const optionsNature = [
+  { value: "student", label: "Student" },
+  { value: "professor", label: "Professor" },
+  { value: "researcher", label: "Researcher" },
+];
+
+export const optionsField = [
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+];
+
 export const variantSignLgAbove = {
   initialEllipse1: { left: "-7%" },
   exitEllipse1: { left: "25%" },
