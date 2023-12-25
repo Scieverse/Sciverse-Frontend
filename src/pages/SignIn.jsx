@@ -1,8 +1,8 @@
 import AuthPagesBg from "../components/AuthPagesBg";
 import { logoOrangeBlack, profilePic } from "../assets/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import { UserContext } from "../contexts/UserContext";
 import {
@@ -17,6 +17,11 @@ const SignIn = () => {
   const { logIn, isLoggedIn } = useContext(UserContext);
   //const replaceAction = replaceStackWithRoute('/layout');
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
   let userProfileData;
 
   const handleSignIn = async () => {
@@ -26,24 +31,21 @@ const SignIn = () => {
       profilePicture: profilePic,
     };
     await logIn(userProfileData);
-  };
-
-  useEffect(() => {
     if (isLoggedIn) navigate("/layout");
-  }, [isLoggedIn]);
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+    else
+      alert(
+        "Your email or password are incorrect please check your infrormation"
+      );
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleChange = (e) => {
+    setData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const [variant, setVariant] = useState(() => {
@@ -87,35 +89,33 @@ const SignIn = () => {
         >
           <form className="flex flex-col w-full justify-center items-center gap-6 padding-x max-lg:px-0">
             <div className="flex w-9/12 flex-col max-md:w-full">
-              <label
-                for="email"
-                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-              >
+              <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
                 Email adress:
               </label>
               <input
                 type="text"
                 id="email"
-                value={email}
-                onChange={handleEmailChange}
+                name="email"
+                value={data.email}
+                onChange={handleChange}
+                required
                 className="register-input"
                 placeholder="Enter your email address"
               />
             </div>
 
             <div className="flex w-9/12 flex-col max-md:w-full">
-              <label
-                for="password"
-                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-              >
+              <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
                 Password:
               </label>
               <div className="relative flex w-full">
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
-                  value={password}
-                  onChange={handlePasswordChange}
+                  value={data.password}
+                  name="password"
+                  onChange={handleChange}
+                  required
                   placeholder="Enter your password"
                   className="register-input"
                 />
@@ -128,25 +128,18 @@ const SignIn = () => {
               </div>
             </div>
           </form>
-          <div
-            className="w-full flex justify-center items-center gap-6 py-3"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <button className="font-poppins font-medium text-lg px-12 max-lg:px-8 max-sm:px-6">
-              Cancel
-            </button>
-            <Link to="/layout">
-              <button
-                className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full max-lg:px-8 max-sm:px-6 max-lg:py-3"
-                onClick={() => {
-                  handleSignIn();
-                }}
-              >
-                Sign in
+          <div className="w-full flex justify-center items-center gap-6 py-3">
+            <Link to="/">
+              <button className="font-poppins font-medium text-lg px-12 max-lg:px-8 max-sm:px-6">
+                Cancel
               </button>
             </Link>
+            <button
+              className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full max-lg:px-8 max-sm:px-6 max-lg:py-3"
+              onClick={handleSignIn}
+            >
+              Sign in
+            </button>
           </div>
         </motion.section>
       </div>

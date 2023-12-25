@@ -1,21 +1,31 @@
 import AuthPagesBg from "../components/AuthPagesBg";
 import { logoOrangeBlack } from "../assets/icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { variantSignLgAbove, variantSignMaxLg, variantSignMaxSm } from "../constants";
+import {
+  optionsField,
+  optionsNature,
+  variantSignLgAbove,
+  variantSignMaxLg,
+  variantSignMaxSm,
+} from "../constants";
+import { UserContext } from "../contexts/UserContext";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { isLoggedIn } = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [isOpenProfession, setIsOpenProfession] = useState(false);
+  const [isOpenNature, setIsOpenNature] = useState(false);
   const [isOpenField, setIsOpenField] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [data, setData] = useState({
-    fullName: "",
-    profession: "",
+    firstName: "",
+    lastName: "",
+    nature: "",
     field: "",
     email: "",
     password: "",
@@ -39,35 +49,37 @@ const SignUp = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const toggleListProfession = () => {
-    setIsOpenProfession(!isOpenProfession);
+  const toggleListNature = () => {
+    setIsOpenNature(!isOpenNature);
   };
 
   const toggleListField = () => {
     setIsOpenField(!isOpenField);
   };
 
-  const optionsProfession = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
-
-  const optionsField = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
     setData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [e.target.name]: e.target.value,
     }));
-    console.log(data);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(data);
+    if (data.password !== data.confirmPassword)
+      alert("Passwords do not match. Please re-enter your password.");
+    else {
+      //logic with backend
+      setFormSubmitted(true);
+    }
+    if (formSubmitted && isLoggedIn) navigate("/layout");
+    else alert("Une erreur c'est produit");
+  };
+
+  // useEffect(() => {
+  //   if (formSubmitted) navigate("/layout");
+  // }, [formSubmitted]);
 
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
@@ -100,57 +112,75 @@ const SignUp = () => {
           <h1 className="font-poppins font-bold text-2xl mb-4 max-lg:text-xl">
             Personal information
           </h1>
-          <form className="flex flex-col w-full justify-center items-center gap-4">
+          <form
+            className="flex flex-col w-full justify-center items-center gap-4"
+            onSubmit={handleSubmit}
+          >
             {/* ********** full name input ********** */}
-            <div className="flex w-full flex-col">
-              <label
-                for="fullName"
-                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-              >
-                Full Name:
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                value={data.fullName}
-                onChange={handleChange}
-                className="register-input"
-                placeholder="Enter your full name"
-              />
+            <div className="flex flew-row justify-center items-center w-full gap-3">
+              <div className="flex flex-1 flex-col">
+                <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
+                  First Name:
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={data.firstName}
+                  onChange={handleChange}
+                  required
+                  className="register-input"
+                  placeholder="Enter your first name"
+                />
+              </div>
+
+              <div className="flex flex-1 flex-col">
+                <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
+                  Last Name:
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={data.lastName}
+                  onChange={handleChange}
+                  required
+                  className="register-input"
+                  placeholder="Enter your last name"
+                />
+              </div>
             </div>
             {/* ************************************* */}
 
-            {/* ********* profession input ********** */}
+            {/* ********* Nature input ********** */}
             <div className="flex w-full flex-col">
-              <label
-                for="profession"
-                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-              >
+              <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
                 Profession:
               </label>
-              <div className="flex flew-row justify-center items-center w-full gap-4">
+              <div className="flex flew-row justify-center items-center w-full gap-3">
                 <div className="relative flex-1">
                   <div>
                     <select
-                      name="profession"
-                      id="profession"
-                      onClick={toggleListProfession}
-                      onChange={({ value }) => {
-                        setData({ ...data, profession: value });
-                      }}
+                      name="nature"
+                      id="nature"
+                      onClick={toggleListNature}
+                      value={data.nature}
+                      onChange={handleChange}
+                      required
                       className="register-input appearance-none signup-select"
                     >
-                      <option value={null}>You are a ...</option>
-                      {optionsProfession.map((profession) => {
+                      <option value={""} key={null}>
+                        You are a ...
+                      </option>
+                      {optionsNature.map((nature) => {
                         return (
-                          <option value={profession.value}>
-                            {profession.label}
+                          <option value={nature.value} key={nature.label}>
+                            {nature.label}
                           </option>
                         );
                       })}
                     </select>
-                    {isOpenProfession ? (
+                    {isOpenNature ? (
                       <FaAngleUp className="absolute top-3.5 right-0 mr-4 text-slate-500" />
                     ) : (
                       <FaAngleDown className="absolute top-3.5 right-0 mr-4 text-slate-500" />
@@ -163,13 +193,20 @@ const SignUp = () => {
                     <select
                       name="field"
                       id="field"
+                      required
+                      value={data.field}
                       onClick={toggleListField}
+                      onChange={handleChange}
                       className="register-input appearance-none signup-select"
                     >
-                      <option value={null}>Field</option>
+                      <option value={""} key={null}>
+                        Field
+                      </option>
                       {optionsField.map((field) => {
                         return (
-                          <option value={field.value}>{field.label}</option>
+                          <option value={field.value} key={field.label}>
+                            {field.label}
+                          </option>
                         );
                       })}
                     </select>
@@ -186,16 +223,16 @@ const SignUp = () => {
 
             {/* ************ email input ************ */}
             <div className="flex w-full flex-col">
-              <label
-                for="email"
-                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-              >
+              <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
                 Email adress:
               </label>
               <input
                 type="text"
                 id="email"
+                name="email"
+                value={data.email}
                 onChange={handleChange}
+                required
                 className="register-input"
                 placeholder="Enter your email address"
               />
@@ -204,17 +241,17 @@ const SignUp = () => {
 
             {/* *********** password input ********** */}
             <div className="flex w-full flex-col">
-              <label
-                for="password"
-                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-              >
+              <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
                 Password:
               </label>
               <div className="relative flex w-full">
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
+                  name="password"
+                  value={data.password}
                   onChange={handleChange}
+                  required
                   placeholder="Enter your password"
                   className="register-input"
                 />
@@ -230,17 +267,17 @@ const SignUp = () => {
 
             {/* ******* confirm password input ****** */}
             <div className="flex w-full flex-col">
-              <label
-                for="confirmPassword"
-                className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50"
-              >
+              <label className="block mb-1 ml-2 text-sm font-poppins font-medium opacity-50">
                 Confirm Password:
               </label>
               <div className="relative flex w-full">
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   id="confirmPassword"
+                  name="confirmPassword"
+                  value={data.confirmPassword}
                   onChange={handleChange}
+                  required
                   placeholder="Confirm your password"
                   className="register-input"
                 />
@@ -253,25 +290,20 @@ const SignUp = () => {
               </div>
             </div>
             {/* ************************************* */}
+            <div className="w-full flex justify-center items-center gap-6">
+              <Link to="/">
+                <button className="font-poppins font-medium text-lg px-12 max-lg:px-8 max-sm:px-6">
+                  Cancel
+                </button>
+              </Link>
+              <button
+                type="submit"
+                className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full max-lg:px-8 max-sm:px-6 max-lg:py-3"
+              >
+                Continue
+              </button>
+            </div>
           </form>
-          <div
-            className="w-full flex justify-center items-center gap-6 py-3"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <button className="font-poppins font-medium text-lg px-12 max-lg:px-8 max-sm:px-6">
-              Cancel
-            </button>
-            <button
-              className="bg-orange text-white font-poppins font-medium text-md px-12 py-3.5 rounded-full max-lg:px-8 max-sm:px-6 max-lg:py-3"
-              onClick={() => {
-                navigate("/signin");
-              }}
-            >
-              Continue
-            </button>
-          </div>
         </motion.div>
       </div>
     </div>
