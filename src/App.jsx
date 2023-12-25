@@ -4,16 +4,19 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import { AnimatePresence } from "framer-motion";
 import Layout from "./components/Layout";
-import { UserProvider } from "./contexts/UserContext";
+import { UserContext, UserProvider } from "./contexts/UserContext";
 import PrivateRoute from "./routes/PrivateRoute";
 import { routes } from "./routes/routes";
 import Error404 from "./components/Error404";
+import Home from "./pages/Home";
+import { useContext } from "react";
+import AddArticleBtn from "./components/AddArticleBtn";
 
 function App() {
   const location = useLocation();
+  const { userProfile } = useContext(UserContext);
   return (
-    <div className="flex w-screen overflow-hidden">
-      <UserProvider>
+    <div className="flex w-screen h-screen overflow-hidden">
         <AnimatePresence mode="wait">
           <Routes key={location.pathname} location={location}>
             <Route path="*" element={<Error404 />} />
@@ -24,7 +27,19 @@ function App() {
               <Route
                 exact
                 path={routes.HOME}
-                element={<Layout title={"Home"} />}
+                element={
+                  <Layout
+                    title={"Home"}
+                    buttonComponent={
+                      userProfile && userProfile.role === "admin" ? (
+                        <AddArticleBtn />
+                      ) : null
+                    }
+                  >
+                    {" "}
+                    <Home />{" "}
+                  </Layout>
+                }
               />
               <Route
                 exact
@@ -54,7 +69,6 @@ function App() {
             </Route>
           </Routes>
         </AnimatePresence>
-      </UserProvider>
     </div>
   );
 }

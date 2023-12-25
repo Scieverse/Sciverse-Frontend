@@ -70,3 +70,72 @@ export const variantHeaderMaxLg = {
   initialEllipse2: { x: 0 },
   exitEllipse2: { left: "50%" },
 };
+
+export const articlesArray = [
+  {
+    title: "Article numéro 01 ",
+    abstract:
+      "hnaya ydji le debut ta3 hada le paragraphe qui abstract l’article(the abstract hadak) juste sneak peak 9iss la taille hadi ou a la fin nkhbtoh b le fameux iuadfzejcznxoqen xenqoedoe dihxonf exjnjex oxnjze cjezo  heehhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkfjduehze diejcjezncjezncozejcnoxncdnefoeifiojoijdiosjdoijoqsqnjxcndsoncoizcozicnonofoi efoizjfoizejfoizjf jdhfgnfdb hiurghuiklerfhjklghwerilohg9u8iqr3ehi iugwifugiusdbvk,jh  uyfsdudyfgvkjhs uyfuyasdgf ",
+    keywords: ["Tag 01", "Tag 02", "Tag 03", "Tag 04"],
+    authors: [
+      {
+        name: "flenn benflenn",
+        institutions: [
+          { institutions_name: "institut 1" },
+          { institutions_name: "institut 2" },
+        ],
+      },
+      {
+        name: "flenn benflenn",
+        institutions: [
+          { institutions_name: "institut 1" },
+          { institutions_name: "institut 2" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Article numéro 02 ",
+    abstract:
+      "hnaya ydji le debut ta3 hada le paragraphe qui abstract l’article(the abstract hadak) juste sneak peak 9iss la taille hadi ou a la fin nkhbtoh b le fameux iuadfzejcznxoqen xenqoedoe dihxonf exjnjex oxnjze cjezo  heehhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkfjduehze diejcjezncjezncozejcnoxncdnefoeifiojoijdiosjdoijoqsqnjxcndsoncoizcozicnonofoi efoizjfoizejfoizjf jdhfgnfdb hiurghuiklerfhjklghwerilohg9u8iqr3ehi iugwifugiusdbvk,jh  uyfsdudyfgvkjhs uyfuyasdgf ",
+    keywords: ["Tag 01", "Tag 02", "Tag 03", "Tag 04"],
+    authors: [
+      {
+        name: "flenn benflenn",
+        institutions: [
+          { institutions_name: "institut 1" },
+          { institutions_name: "institut 2" },
+        ],
+      },
+      {
+        name: "flenn benflenn",
+        institutions: [
+          { institutions_name: "institut 1" },
+          { institutions_name: "institut 2" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Article numéro 03 ",
+    abstract:
+      "hnaya ydji le debut ta3 hada le paragraphe qui abstract l’article(the abstract hadak) juste sneak peak 9iss la taille hadi ou a la fin nkhbtoh b le fameux iuadfzejcznxoqen xenqoedoe dihxonf exjnjex oxnjze cjezo  heehhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkfjduehze diejcjezncjezncozejcnoxncdnefoeifiojoijdiosjdoijoqsqnjxcndsoncoizcozicnonofoi efoizjfoizejfoizjf jdhfgnfdb hiurghuiklerfhjklghwerilohg9u8iqr3ehi iugwifugiusdbvk,jh  uyfsdudyfgvkjhs uyfuyasdgf ",
+    keywords: ["Tag 01", "Tag 02", "Tag 03", "Tag 04"],
+    authors: [
+      {
+        name: "flenn benflenn",
+        institutions: [
+          { institutions_name: "institut 1" },
+          { institutions_name: "institut 2" },
+        ],
+      },
+      {
+        name: "flenn benflenn",
+        institutions: [
+          { institutions_name: "institut 1" },
+          { institutions_name: "institut 2" },
+        ],
+      },
+    ],
+  },
+];
