@@ -1,0 +1,28 @@
+{ 
+    "titre": "titre 01",
+    "resume": "lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem lotem",
+    "texte_integral": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore beatae rem dolorem? Modi quasi velit impedit architecto repellat aperiam reprehenderit praesentium distinctio in odio maxime optio, eaque sint eveniet ipsam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae vel corrupti nam.",
+    "url_pdf": "", 
+    "mot_cle": ["idk1", "odk2", "okeyy", "main non","idk1", "odk2 ", "okeyy", "main non"],
+    "auteurs": [
+         { 
+            "nom": "boualem",
+            "prenom": "titiche",
+            "email": "", 
+            "institutions": [
+                    {"nom_institution": "aa"}, 
+                    {"nom_institution": "bb"} 
+                ] },
+        { 
+            "nom": "hamid",
+            "prenom": "zerhouni", 
+            "email": "", 
+            "institutions": [ 
+                {"nom_institution": "cc"}, 
+                {"nom_institution": "dd"} 
+            ] } ],
+    "references": [
+        "Référence 1:", 
+        "Référence 2: " ],
+    "created_at": { "type": "date" } 
+}
