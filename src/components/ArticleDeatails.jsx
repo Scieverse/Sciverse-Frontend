@@ -1,6 +1,29 @@
 import { LiaPenFancySolid } from "react-icons/lia";
+import {length, split, useState} from 'react';
 
 function ArticleDetails({articles}){
+
+    const arti = articles;
+    const [texte,setTexte] = useState(arti.texte_integral);
+    const WordCount = (str) => {
+        let totalSoFar = 0;
+        for (let i = 0; i < texte.length; i++)
+          if (str[i] === " ") { // if a space is found in str
+            totalSoFar++; // add 1 to total so far
+        }
+        return (totalSoFar);
+      }
+
+    let len = WordCount(texte);
+    let len2 = (len-(len%2))/2;
+      
+
+    const displayWordRange = (text, start, end) => {
+        const words = text.split(" ");
+        const selectedWords = words.slice(start, end).join(" ");
+        return selectedWords; 
+    }; 
+
   return (
     <div className="w-[1264px] h-4/6">
         <div className="W-4/5 py-4 px-6 flex flex-col flex-wrap justify-center content-center bg-[#DEDEDE] font-poppins">
@@ -54,6 +77,13 @@ function ArticleDetails({articles}){
 
             <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none sm:mb-0 mb-4"/>
 
+            <div className="flex justify-center mb-3 flex-col sm:px-4 px-6 py-2">
+                <p className="text-5xl sm:text-3xl font-meduim sm:my-2 mb-4 mx-1">Article:</p>
+                <div className="grid grid-cols-2 gap-10 px-4 ">
+                    <div><p className='text-[#190B28] text-3xl sm:text-sm' >{displayWordRange(texte,1,len2)}</p></div>
+                    <div><p className='text-[#190B28] text-3xl sm:text-sm col-span-1' > {displayWordRange(texte,len2, len)}</p></div>
+                </div>
+            </div>
         </div>
     </div>
   );
