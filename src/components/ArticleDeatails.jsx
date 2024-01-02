@@ -25,7 +25,7 @@ function ArticleDetails({articles}){
     }; 
 
   return (
-    <div className="w-[1264px] h-4/6">
+    <div className="w-[1264px]">
         <div className="W-4/5 py-4 px-6 flex flex-col flex-wrap justify-center content-center bg-[#DEDEDE] font-poppins">
             <div className="flex justify-center sm:mb-3 mb-5">
                 <h1 className="sm:text-3xl text-6xl font-meduim"> {articles.titre}</h1>
@@ -83,6 +83,12 @@ function ArticleDetails({articles}){
                     <div><p className='text-[#190B28] text-3xl sm:text-sm' >{displayWordRange(texte,1,len2)}</p></div>
                     <div><p className='text-[#190B28] text-3xl sm:text-sm col-span-1' > {displayWordRange(texte,len2, len)}</p></div>
                 </div>
+            </div>
+
+            <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none sm:mb-0 mb-4"/>
+
+            <div className="m-4 flex justify-center h-[95vh]">
+                <iframe src={articles.url_pdf} width="80%" height="100%"/>
             </div>
         </div>
     </div>
