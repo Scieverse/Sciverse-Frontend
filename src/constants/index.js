@@ -8,13 +8,14 @@ export const navLinks = [
   { href: routes.HOME, label: "Home", icon: GoHomeFill },
   { href: routes.FAVORITE, label: "Favorite", icon: IoStar },
   { href: routes.HISTORY, label: "History", icon: FaClockRotateLeft },
-  { href: routes.CATEGORIES, label: "Categories", icon: FaFilter },
 ];
 
 export const filterInitialization = [
-  { checked: true, label: "Option 1" },
-  { checked: true, label: "Option 2" },
-  { checked: true, label: "Option 3" },
+  { checked: true, label: "Title", id: "title", value: "" },
+  { checked: true, label: "Author", id: "author", value: "" },
+  { checked: true, label: "Institution", id: "institution", value: "" },
+  { checked: true, label: "Keywords", id: "keyWords", value: "" },
+  { checked: true, label: "References", id: "references", value: "" },
 ];
 
 export const optionsNature = [
