@@ -66,6 +66,26 @@ function App() {
                 path={routes.SETTINGS}
                 element={<Layout title={"Settings"} />}
               />
+              <Route
+                exact
+                path={routes.PROFILE}
+                element={<Layout title={"Profile"} />}
+              />
+              <Route
+                exact
+                path={routes.MODERATORS}
+                element={<Layout title={"Moderateurs"} />}
+              />
+              <Route
+                exact
+                path={routes.MODERATOREDIT}
+                element={<Layout title={"Modifier Moderateur"} />}
+              />
+              <Route
+                exact
+                path={routes.ARTICLE}
+                element={<Layout title={"Article"} />}
+              />
             </Route>
           </Routes>
         </AnimatePresence>
