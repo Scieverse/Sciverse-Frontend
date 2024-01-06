@@ -6,9 +6,9 @@ import { FaRegUser } from "react-icons/fa";
 
 function Profile({user}){
     return (
-        <div className="w-[100vw] h-[100vh]">
-            <div className="w-full h-full py-6 px-6 flex flex-col flex-wrap justify-center content-center bg-[rgb(222,222,222)] font-poppins">
-                <div className="h-11/12 w-1/3 bg-[#E87D00] bg-opacity-20 p-8 rounded-[20px] relative flex flex-col content-center justifyevenly flex-wrap mt-14">
+        <div className="w-full h-full">
+            <div className="w-full py-6 px-6 flex flex-col flex-wrap justify-center content-center bg-[rgb(222,222,222)] font-poppins">
+                <div className="h-11/12 w-[40%] bg-[#E87D00] bg-opacity-20 p-8 rounded-[20px] relative flex flex-col content-center justifyevenly flex-wrap mt-10">
                     <div className="h-[8.5rem] w-[8.5rem] rounded-full absolute -top-16 left-1/3 bg-white p-1">
                         <img src={user.photo} alt="Profile Picture" className="h-32 w-32 rounded-full border-4 border-[#E87D00] "/>
                     </div>
