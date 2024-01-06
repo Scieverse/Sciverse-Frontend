@@ -25,10 +25,10 @@ function Moderateurs({modlist}){
     return (
     <div className="w-full h-4/6">
         {Display && <Pop Close={Close} Delete={FilterData(key)} />}
-        <div className="w-4/5 py-2 px-6 flex flex-col flex-wrap justify-center content-center bg-[#ffffff] font-poppins">
+        <div className="w-full py-2 px-6 flex flex-col flex-wrap justify-center content-center bg-[#ffffff] font-poppins">
             <div className="w-full flex justify-between content-center flex-nowrap my-1 mx-4">
                 <div className="flex justify-between content-center flex-nowrap mx-4 w-[64%] px-4">
-                    <input type='checkbox'className="w-5 h-5 border-none"></input>
+                    <input type='checkbox' className="w-5 h-5 border-none"></input>
                     <p className="h-6">nom</p>
                     <p className="h-6">prenom</p>
                     <p className="h-6">surnom</p>
@@ -41,7 +41,7 @@ function Moderateurs({modlist}){
         </div>
         {modlist.map(list => {
             return(
-                <div key={list.surnom} className="w-4/5 py-4 px-6 flex flex-col flex-wrap justify-center content-center bg-[#DEDEDE] font-poppins">
+                <div key={list.surnom} className="w-full py-4 px-6 flex flex-col flex-wrap justify-center content-center bg-[#DEDEDE] font-poppins">
                     <div className="flex justify-between content-center flex-nowrap my-1 mx-4">
                         <div className="flex justify-between content-center flex-nowrap mx-4 w-4/6">
                             <input type='checkbox'className="w-5 h-4 border-none"></input>
