@@ -62,6 +62,5 @@ function Moderateurs({modlist}){
       </div>
     );
   };
-import { fromJSON } from "postcss";
   
   export default Moderateurs;

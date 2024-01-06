@@ -1,9 +1,9 @@
 import { LiaPenFancySolid } from "react-icons/lia";
 import {length, split, useState} from 'react';
 
-function ArticleDetails({articles}){
+function ArticleDetails({article}){
 
-    const arti = articles;
+    const arti = article;
     const [texte,setTexte] = useState(arti.texte_integral);
     const WordCount = (str) => {
         let totalSoFar = 0;
@@ -28,7 +28,7 @@ function ArticleDetails({articles}){
     <div className="w-[1264px]">
         <div className="W-4/5 py-4 px-6 flex flex-col flex-wrap justify-center content-center bg-[#DEDEDE] font-poppins">
             <div className="flex justify-center sm:mb-3 mb-5">
-                <h1 className="sm:text-3xl text-6xl font-meduim"> {articles.titre}</h1>
+                <h1 className="sm:text-3xl text-6xl font-meduim"> {article.titre}</h1>
             </div>
 
             <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none sm:mb-0 mb-4"/>
@@ -38,7 +38,7 @@ function ArticleDetails({articles}){
                     <LiaPenFancySolid  className="sm:h-6 h-10 sm:w-6 w-10 sm:mr-1 mr-2"/>
                     <p className='text-[#190B28] text-3xl sm:text-base font-semibold mr-1'>Auteurs:</p>
                     <p className='text-[#190B28] text-3xl sm:text-base '>
-                        {articles.auteurs.map(auteur =>{
+                        {article.auteurs.map(auteur =>{
                                 return(auteur.nom + " " + auteur.prenom + ". ")
                         })};
                     </p>
@@ -48,7 +48,7 @@ function ArticleDetails({articles}){
                     <LiaPenFancySolid  className="sm:h-6 sm:w-6 h-10 w-10 sm:mr-1 mr-2"/>
                     <p className='text-[#190B28] text-3xl sm:text-base font-semibold mr-1'>Institutions:</p>
                     <p className='text-[#190B28] text-3xl sm:text-base '>
-                        {articles.auteurs.map(auteur =>{
+                        {article.auteurs.map(auteur =>{
                             return(auteur.institutions.map(institu=>{
                                 return(institu.nom_institution + " ")
                             }));
@@ -60,7 +60,7 @@ function ArticleDetails({articles}){
                     <LiaPenFancySolid  className="sm:h-6 sm:w-6 h-10 w-10 sm:mr-1 mr-2"/>
                     <p className='text-[#190B28] text-3xl sm:text-base font-semibold mr-1'>Mots clés:</p>
                     <p className='text-[#190B28] text-3xl sm:text-base '>
-                        {articles.mot_cle.map(article => {
+                        {article.mot_cle.map(article => {
                             return(article + " ")
                                 }
                         )}
@@ -72,7 +72,7 @@ function ArticleDetails({articles}){
 
             <div className="flex justify-center mb-3 flex-col sm:px-4 px-6 py-2">
                 <p className="text-5xl sm:text-3xl font-meduim sm:my-2 mb-4 mx-1">Abstract:</p>
-                <p className='text-[#190B28] text-3xl sm:text-sm'>{articles.resume} </p>
+                <p className='text-[#190B28] text-3xl sm:text-sm'>{article.resume} </p>
             </div>
 
             <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none sm:mb-0 mb-4"/>
@@ -88,7 +88,7 @@ function ArticleDetails({articles}){
             <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none sm:mb-0 mb-4"/>
 
             <div className="m-4 flex justify-center h-[95vh]">
-                <iframe src={articles.url_pdf} width="80%" height="100%"/>
+                <iframe src={article.url_pdf} width="80%" height="100%"/>
             </div>
         </div>
     </div>
