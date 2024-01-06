@@ -11,84 +11,80 @@ import Error404 from "./components/Error404";
 import Home from "./pages/Home";
 import { useContext } from "react";
 import AddArticleBtn from "./components/AddArticleBtn";
+import Moderateurs from "./pages/Moderateurs";
+import EditModerateur from "./pages/EditModerateur";
+import Profile from "./pages/Profile"
 
 function App() {
   const location = useLocation();
   const { userProfile } = useContext(UserContext);
   return (
     <div className="flex w-screen h-screen overflow-hidden">
-        <AnimatePresence mode="wait">
-          <Routes key={location.pathname} location={location}>
-            <Route path="*" element={<Error404 />} />
-            <Route exact path={routes.HEADER} element={<Header />} />
-            <Route exact path={routes.SIGNIN} element={<SignIn />} />
-            <Route exact path={routes.SIGNUP} element={<SignUp />} />
-            <Route exact path="/" element={<PrivateRoute />}>
-              <Route
-                exact
-                path={routes.HOME}
-                element={
-                  <Layout
-                    title={"Home"}
-                    buttonComponent={
-                      userProfile && userProfile.role === "admin" ? (
-                        <AddArticleBtn />
-                      ) : null
-                    }
-                  >
-                    {" "}
-                    <Home />{" "}
-                  </Layout>
-                }
-              />
-              <Route
-                exact
-                path={routes.FAVORITE}
-                element={<Layout title={"Favorite"} />}
-              />
-              <Route
-                exact
-                path={routes.HISTORY}
-                element={<Layout title={"History"} />}
-              />
-              <Route
-                exact
-                path={routes.CATEGORIES}
-                element={<Layout title={"Categories"} />}
-              />
-              <Route
-                exact
-                path={routes.MODERATORS}
-                element={<Layout title={"Moderators"} />}
-              />
-              <Route
-                exact
-                path={routes.SETTINGS}
-                element={<Layout title={"Settings"} />}
-              />
-              <Route
-                exact
-                path={routes.PROFILE}
-                element={<Layout title={"Profile"} />}
-              />
-              <Route
-                exact
-                path={routes.MODERATORS}
-                element={<Layout title={"Moderateurs"} />}
-              />
-              <Route
-                exact
-                path={routes.MODERATOREDIT}
-                element={<Layout title={"Modifier Moderateur"} />}
-              />
-              <Route
-                exact
-                path={routes.ARTICLE}
-                element={<Layout title={"Article"} />}
-              />
-            </Route>
-          </Routes>
-        </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <Routes key={location.pathname} location={location}>
+          <Route path="*" element={<Error404 />} />
+          <Route exact path={routes.HEADER} element={<Header />} />
+          <Route exact path={routes.SIGNIN} element={<SignIn />} />
+          <Route exact path={routes.SIGNUP} element={<SignUp />} />
+          <Route exact path="/" element={<PrivateRoute />}>
+            <Route
+              exact
+              path={routes.HOME}
+              element={
+                <Layout
+                  title={"Home"}
+                  buttonComponent={
+                    userProfile && userProfile.role === "admin" ? (
+                      <AddArticleBtn />
+                    ) : null
+                  }
+                >
+                  {" "}
+                  <Home />{" "}
+                </Layout>
+              }
+            />
+            <Route
+              exact
+              path={routes.FAVORITE}
+              element={<Layout title={"Favorite"} />}
+            />
+            <Route
+              exact
+              path={routes.HISTORY}
+              element={<Layout title={"History"} />}
+            />
+            <Route
+              exact
+              path={routes.SETTINGS}
+              element={<Layout title={"Settings"} >
+                <Profile />
+              </Layout>}
+            />
+            <Route
+              exact
+              path={routes.MODERATORS}
+              element={
+                <Layout title={"Moderators"}>
+                  <Moderateurs />
+                </Layout>
+              }
+            />
+            <Route
+              exact
+              path={routes.MODERATOREDIT}
+              element={<Layout title={"Moderators"} >
+                < EditModerateur />
+              </Layout>}
+            />
+            <Route
+              exact
+              path={routes.ARTICLE}
+              element={<Layout title={"Article"} />}
+            />
+          </Route>
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
