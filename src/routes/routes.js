@@ -6,6 +6,9 @@ export const routes = {
   FAVORITE: "/favoris",
   HISTORY: "/history",
   CATEGORIES: "/categories",
-  MODERATORS: "/moderators",
+  MODERATORS: "/moderateurs",
+  MODERATOREDIT: "/editmoderateur",
   SETTINGS: "/settings",
+  ARTICLE: "/article",
+  PROFILE: "/profile",
 };
