@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { article } from "../constants";
 import ArticleDetails from "../components/ArticleDeatails";
 
-const Article = () => {
+const Article = (article) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
