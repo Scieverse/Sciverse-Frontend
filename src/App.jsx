@@ -13,13 +13,17 @@ import { useContext } from "react";
 import AddArticleBtn from "./components/AddArticleBtn";
 import Moderateurs from "./pages/Moderateurs";
 import EditModerateur from "./pages/EditModerateur";
+import EditPassword from "./pages/EditPassword";
 import Profile from "./pages/Profile"
+import Article from "./pages/Article";
+import { ArticleProvider } from "./contexts/ArticleContext";
 
 function App() {
   const location = useLocation();
   const { userProfile } = useContext(UserContext);
   return (
     <div className="flex w-screen h-screen overflow-hidden">
+      <ArticleProvider>
       <AnimatePresence mode="wait">
         <Routes key={location.pathname} location={location}>
           <Route path="*" element={<Error404 />} />
@@ -34,7 +38,7 @@ function App() {
                 <Layout
                   title={"Home"}
                   buttonComponent={
-                    userProfile && userProfile.role === "admin" ? (
+                    userProfile && userProfile.nature === "admin" ? (
                       <AddArticleBtn />
                     ) : null
                   }
@@ -79,12 +83,23 @@ function App() {
             />
             <Route
               exact
+              path={routes.PASSWORDEDIT}
+              element={<Layout title={"Home"} >
+                < EditPassword />
+              </Layout>}
+            />
+            <Route
+              exact
               path={routes.ARTICLE}
-              element={<Layout title={"Article"} />}
+              element={
+              <Layout title={"Home"}>
+                < Article />
+              </Layout>}
             />
           </Route>
         </Routes>
       </AnimatePresence>
+      </ArticleProvider>
     </div>
   );
 }

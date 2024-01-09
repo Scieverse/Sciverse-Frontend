@@ -8,6 +8,7 @@ export const routes = {
   CATEGORIES: "/categories",
   MODERATORS: "/moderateurs",
   MODERATOREDIT: "/editmoderateur",
+  PASSWORDEDIT: "/editpassword",
   SETTINGS: "/settings",
   ARTICLE: "/article",
   PROFILE: "/profile",
