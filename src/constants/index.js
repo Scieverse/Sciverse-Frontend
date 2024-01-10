@@ -122,12 +122,12 @@ export const articlesArray = [
     ],
   },
   {
-    title: "Article numéro 03 ",
+    title: "Article numéro 03 est c'est celui du test c vrmt le mellieur tout comme vous ",
     abstract:
       "hnaya ydji le debut ta3 hada le paragraphe qui abstract l’article(the abstract hadak) juste sneak peak 9iss la taille hadi ou a la fin nkhbtoh b le fameux iuadfzejcznxoqen xenqoedoe dihxonf exjnjex oxnjze cjezo  heehhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkfjduehze diejcjezncjezncozejcnoxncdnefoeifiojoijdiosjdoijoqsqnjxcndsoncoizcozicnonofoi efoizjfoizejfoizjf jdhfgnfdb hiurghuiklerfhjklghwerilohg9u8iqr3ehi iugwifugiusdbvk,jh  uyfsdudyfgvkjhs uyfuyasdgf ",
     keywords: ["Tag 01", "Tag 02", "Tag 03", "Tag 04"],
     full_text: "This is the complete text of the article This is the complete text of the article",
-    pdf_url: "http://sampleurl.com/article.pdf",
+    pdf_url: "https://granito.co.id/wp-content/uploads/2021/05/ARTILE-Brochure-Mei-2021.pdf",
     authors: [
       {
         name: "flenn benflenn",
