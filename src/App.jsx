@@ -13,13 +13,21 @@ import { useContext } from "react";
 import AddArticleBtn from "./components/AddArticleBtn";
 import Moderateurs from "./pages/Moderateurs";
 import EditModerateur from "./pages/EditModerateur";
+import EditPassword from "./pages/EditPassword";
 import Profile from "./pages/Profile"
+import Article from "./pages/Article";
+import { ArticleProvider } from "./contexts/ArticleContext";
+import AddModerator from "./pages/AddModerator";
+import AddModeratorBtn from "./components/AddModeratorBtn";
+import EditArticleBtn from "./components/EditArticleBtn";
+import EditArticle from "./pages/EditArticle";
 
 function App() {
   const location = useLocation();
   const { userProfile } = useContext(UserContext);
   return (
     <div className="flex w-screen h-screen overflow-hidden">
+      <ArticleProvider>
       <AnimatePresence mode="wait">
         <Routes key={location.pathname} location={location}>
           <Route path="*" element={<Error404 />} />
@@ -34,7 +42,7 @@ function App() {
                 <Layout
                   title={"Home"}
                   buttonComponent={
-                    userProfile && userProfile.role === "admin" ? (
+                    userProfile && userProfile.nature === "admin" ? (
                       <AddArticleBtn />
                     ) : null
                   }
@@ -65,7 +73,12 @@ function App() {
               exact
               path={routes.MODERATORS}
               element={
-                <Layout title={"Moderators"}>
+                <Layout title={"Moderators"}                   
+                buttonComponent={
+                  userProfile && userProfile.nature === "admin" ? (
+                    <AddModeratorBtn />
+                  ) : null}
+                >
                   <Moderateurs />
                 </Layout>
               }
@@ -79,12 +92,43 @@ function App() {
             />
             <Route
               exact
+              path={routes.ADDMODERATOR}
+              element={
+                <Layout
+                  title={"Settings"}>
+                < AddModerator />
+              </Layout>}
+            />
+            <Route
+              exact
+              path={routes.PASSWORDEDIT}
+              element={<Layout title={"Home"} >
+                < EditPassword />
+              </Layout>}
+            />
+            <Route
+              exact
+              path={routes.EDITARTICLE}
+              element={<Layout title={"Home"} >
+                < EditArticle/>
+              </Layout>}
+            />
+            <Route
+              exact
               path={routes.ARTICLE}
-              element={<Layout title={"Article"} />}
+              element={
+              <Layout title={"Home"}
+              buttonComponent={
+                userProfile && (userProfile.nature === "admin" || userProfile.nature === "Moderateur") ? (
+                  <EditArticleBtn />
+                ) : null}>
+                < Article />
+              </Layout>}
             />
           </Route>
         </Routes>
       </AnimatePresence>
+      </ArticleProvider>
     </div>
   );
 }

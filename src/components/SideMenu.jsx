@@ -8,7 +8,7 @@ import { UserContext } from '../contexts/UserContext';
 
 const SideMenu = ({title}) => {
       const { userProfile } = useContext(UserContext);
-      const { role } = userProfile;
+      const { nature } = userProfile;
       //Getting page title and icon
       const [selectedItem, setSelectedItem] = useState(title);
   return (
@@ -21,10 +21,11 @@ const SideMenu = ({title}) => {
         <img src={logoOrangeBlack} className=" w-2/3 py-4 max-md:hidden" />
         <img src={logoSOrange} className=" w-7/12 py-4 md:hidden" />
         <div className="flex flex-col h-1/2 items-center justify-start gap-10 2xl:gap-y-16 ">
-          {navLinks.map((link) => {
+          {navLinks.map((link,index) => {
             const Icon = link.icon;
             return (
               <Link
+                key={index}
                 className={`menu-text ${
                   selectedItem === link.label ? "text-orange font-bold" : ""
                 }`}
@@ -36,7 +37,7 @@ const SideMenu = ({title}) => {
             );
           })}
 
-          {role === "admin" ? (
+          {nature === "admin" ? (
             <Link
               className={`menu-text ${
                 selectedItem === "Moderators" ? "text-orange font-bold" : ""

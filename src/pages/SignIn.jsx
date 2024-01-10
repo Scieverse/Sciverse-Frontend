@@ -27,7 +27,11 @@ const SignIn = () => {
 
   const handleSignIn = async () => {
     userProfileData = {
-      role: "admin",
+      email: "votre_email@example.com",
+      password: "votre_mot_de_passe",
+      firstName: "firstName",
+      lastName: "lastName",
+      nature: "admin",
       username: "imadeddine",
       profilePicture: profilePic,
     };
