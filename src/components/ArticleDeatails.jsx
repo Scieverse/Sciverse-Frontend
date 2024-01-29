@@ -97,9 +97,9 @@ function ArticleDetails(){
 
             <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none sm:mb-0 mb-4"/>
 
-            <div className="my-8 flex justify-center h-[95vh]">
+            {/* <div className="my-8 flex justify-center h-[95vh]">
                 <iframe src={article.pdf_url} width="95%" height="100%"/>
-            </div>
+            </div> */}
         </div>
     </div>
   );

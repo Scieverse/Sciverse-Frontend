@@ -16,8 +16,6 @@ export const getTitleIcon = (title) => {
       return MdGroups;
     case "Settings":
       return IoSettings;
-    case "Return Button":
-      return IoSettings;
   }
 };
 
