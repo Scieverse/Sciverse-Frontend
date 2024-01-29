@@ -2,7 +2,7 @@ import { LiaPenFancySolid } from "react-icons/lia";
 import {length, split, useContext, useState} from 'react';
 import { ArticleContext } from "../contexts/ArticleContext";
 import { useNavigate } from "react-router-dom";
-import Pop from './PopModifierArticle';
+import Pop from "./popUps/PopModifierArticle";
 
 function ArticleDetails(){
     const {ArticleDisplay} = useContext(ArticleContext)

@@ -1,9 +1,9 @@
-import { getAuteurInstitus } from "../functions/articleFct";
+import { getAuteurInstitus } from "../../functions/articleFct";
 import React, { useContext, useState } from "react";
 import { IoStar } from "react-icons/io5";
-import { routes } from "../routes/routes";
+import { routes } from "../../routes/routes";
 import { useNavigate } from "react-router-dom";
-import { ArticleContext } from "../contexts/ArticleContext";
+import { ArticleContext } from "../../contexts/ArticleContext";
 
 function ArticleCard({ article }) {
   const { setArticleDisplay } = useContext(ArticleContext);

@@ -3,14 +3,14 @@ import Header from "./pages/Header";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import { AnimatePresence } from "framer-motion";
-import Layout from "./components/Layout";
+import Layout from "./components/layout/Layout";
 import { UserContext, UserProvider } from "./contexts/UserContext";
 import PrivateRoute from "./routes/PrivateRoute";
 import { routes } from "./routes/routes";
-import Error404 from "./components/Error404";
+import Error404 from "./components/layout/Error404";
 import Home from "./pages/Home";
 import { useContext } from "react";
-import AddArticleBtn from "./components/AddArticleBtn";
+import AddArticleBtn from "./components/buttons/AddArticleBtn";
 import Moderateurs from "./pages/Moderateurs";
 import EditModerateur from "./pages/EditModerateur";
 import EditPassword from "./pages/EditPassword";
@@ -18,8 +18,8 @@ import Profile from "./pages/Profile"
 import Article from "./pages/Article";
 import { ArticleProvider } from "./contexts/ArticleContext";
 import AddModerator from "./pages/AddModerator";
-import AddModeratorBtn from "./components/AddModeratorBtn";
-import EditArticleBtn from "./components/EditArticleBtn";
+import AddModeratorBtn from "./components/buttons/AddModeratorBtn";
+import EditArticleBtn from "./components/buttons/EditArticleBtn";
 import EditArticle from "./pages/EditArticle";
 
 function App() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Pop from './PopModifierMotDePasseERR.jsx'
+import Pop from "./popUps/PopModifierMotDePasseERR.jsx";
 import { useNavigate } from "react-router-dom";
 
 function ModifierMotDePasse(){

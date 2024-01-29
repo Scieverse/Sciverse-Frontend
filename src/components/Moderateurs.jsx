@@ -1,7 +1,7 @@
 import { MdModeEditOutline } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
 import { CiMenuKebab } from "react-icons/ci";
-import Pop from './PopDeleteModer.jsx';
+import Pop from './popUps/PopDeleteModer.jsx';
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import {routes} from '../routes/routes.js'

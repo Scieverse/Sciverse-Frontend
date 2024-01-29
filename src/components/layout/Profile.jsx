@@ -4,9 +4,9 @@ import { IoLanguage } from "react-icons/io5";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
 import { useNavigate} from "react-router-dom";
-import { routes } from '../routes/routes.js'
+import { routes } from '../../routes/routes.js'
 import { FaUserClock } from "react-icons/fa";
-import { UserContext } from "../contexts/UserContext.jsx";
+import { UserContext } from "../../contexts/UserContext.jsx";
 
 function Profile(){
     const { userProfile , logOut} = useContext(UserContext);

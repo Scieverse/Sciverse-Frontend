@@ -1,4 +1,4 @@
-import CProfile from '../components/Profile'
+import CProfile from '../components/layout/Profile'
 import { User } from '../constants';
 
 

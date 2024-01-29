@@ -1,9 +1,9 @@
 import SearchBar from "./SearchBar";
-import { getTitleIcon } from "../functions/layoutFct";
-import { FilterProvider } from "../contexts/FilterContext";
-import ProfileButton from "./ProfileButton";
+import { getTitleIcon } from "../../functions/layoutFct";
+import { FilterProvider } from "../../contexts/FilterContext";
+import ProfileButton from "../buttons/ProfileButton";
 import SideMenu from "./SideMenu";
-import { ArticleProvider } from "../contexts/ArticleContext";
+import { ArticleProvider } from "../../contexts/ArticleContext";
 
 function Layout({ title, children, buttonComponent }) {
   const TitleIcon = getTitleIcon(title);

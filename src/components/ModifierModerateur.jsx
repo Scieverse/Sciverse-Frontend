@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Pop from './PopModifierModerateur.jsx'
+import Pop from "./popUps/PopModifierModerateur.jsx";
 import { useNavigate } from "react-router-dom";
 import {routes} from '../routes/routes.js'
 import { useContext } from "react";

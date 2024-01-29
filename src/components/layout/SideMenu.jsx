@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { logoOrangeBlack, logoSOrange } from '../assets/icons';
-import { navLinks } from '../constants';
+import { logoOrangeBlack, logoSOrange } from '../../assets/icons';
+import { navLinks } from '../../constants';
 import { Link } from 'react-router-dom';
-import { routes } from '../routes/routes';
+import { routes } from '../../routes/routes';
 import { MdGroups } from 'react-icons/md';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 
 const SideMenu = ({title}) => {
       const { userProfile } = useContext(UserContext);

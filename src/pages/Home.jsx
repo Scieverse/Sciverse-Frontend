@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { articlesArray } from "../constants";
-import ArticleCard from "../components/ArticleCard";
+import ArticleCard from "../components/cards/ArticleCard";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
