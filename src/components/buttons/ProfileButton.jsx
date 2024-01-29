@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoSettings } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
-import { routes } from "../routes/routes";
+import { routes } from "../../routes/routes";
 
 const ProfileButton = () => {
   const { userProfile, logOut } = useContext(UserContext);
