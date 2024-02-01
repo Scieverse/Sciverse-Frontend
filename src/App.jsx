@@ -21,6 +21,7 @@ import AddModerator from "./pages/AddModerator";
 import AddModeratorBtn from "./components/buttons/AddModeratorBtn";
 import EditArticleBtn from "./components/buttons/EditArticleBtn";
 import EditArticle from "./pages/EditArticle";
+import Favorite from "./pages/Favorite";
 
 function App() {
   const location = useLocation();
@@ -55,7 +56,13 @@ function App() {
               <Route
                 exact
                 path={routes.FAVORITE}
-                element={<Layout title={"Favorite"} />}
+                element={
+                  <Layout
+                    title={"Favorite"}
+                  >
+                    <Favorite />
+                  </Layout>
+                }
               />
               <Route
                 exact

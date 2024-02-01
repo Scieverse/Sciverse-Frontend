@@ -14,10 +14,11 @@ import {
 } from "../constants";
 import { UserContext } from "../contexts/UserContext";
 import { routes } from "../routes/routes";
+import axios from "axios";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useContext(UserContext);
+  const { logIn, isLoggedIn } = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isOpenNature, setIsOpenNature] = useState(false);
@@ -65,22 +66,38 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(data);
     if (data.password !== data.confirmPassword)
       alert("Passwords do not match. Please re-enter your password.");
     else {
-      //logic with backend
-      setFormSubmitted(true);
+      try {
+        const response = await axios.post("http://127.0.0.1:5000/signup", data);
+        if (response.data.error) {
+          alert("Error: " + response.data.error);
+        } else {
+          const userProfile = { ...data, ...response.data };
+          setFormSubmitted(true);
+          await logIn(userProfile);
+        }
+      } catch (error) {
+        if (error.response) {
+          alert("Error: " + error.response.data.error);
+        } else if (error.request) {
+          alert(
+            "No response received from the server. Please try again later."
+          );
+        } else {
+          alert("An unexpected error occurred. Please try again later.");
+        }
+      }
     }
-    if (formSubmitted && isLoggedIn) navigate(routes.HOME);
-    else alert("Une erreur c'est produit");
   };
 
-  // useEffect(() => {
-  //   if (formSubmitted) navigate("/layout");
-  // }, [formSubmitted]);
+  useEffect(() => {
+    if (formSubmitted && isLoggedIn) navigate(routes.HOME);
+  }, [formSubmitted, isLoggedIn]);
 
   return (
     <div className="w-full h-[100vh] relative flex justify-center items-center ">
