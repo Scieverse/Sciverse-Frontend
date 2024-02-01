@@ -29,6 +29,14 @@ function Profile(){
                                 <p className="capitalize text-xs font-poppins ">Email</p>
                                 <p className="capitalize text-sm font-poppins">{userProfile.email}</p>
                             </div>
+                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
+                                <p className="capitalize text-xs font-poppins ">Nature</p>
+                                <p className="capitalize text-sm font-poppins">{userProfile.nature}</p>
+                            </div>
+                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
+                                <p className="capitalize text-xs font-poppins ">Field</p>
+                                <p className="capitalize text-sm font-poppins">{userProfile.field}</p>
+                            </div>
                             <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4">
                                 <p className="capitalize text-xs font-poppins ">Role</p>
                                 <p className="capitalize text-sm font-poppins">{userProfile.role}</p>

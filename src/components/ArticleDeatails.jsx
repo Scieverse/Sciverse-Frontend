@@ -52,7 +52,7 @@ function ArticleDetails(){
                     <p className='text-[#190B28] text-3xl sm:text-base '>
                         {article.authors.map(auteur =>{
                             return(auteur.institutions.map(institution=>{
-                                return(institution.institutions_name + " ")
+                                return(institution.institution_name + ", ")
                             }));
                         })}
                     </p>
@@ -63,7 +63,7 @@ function ArticleDetails(){
                     <p className='text-[#190B28] text-3xl sm:text-base font-semibold mr-1'>Mots clés:</p>
                     <p className='text-[#190B28] text-3xl sm:text-base '>
                         {article.keywords.map(keyword => {
-                            return(keyword + ", ")
+                            return(keyword.keyword + ", ")
                                 }
                         )}
                     </p>

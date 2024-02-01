@@ -3,19 +3,22 @@ import ArticleCard from "../components/cards/ArticleCard";
 import { UserContext } from "../contexts/UserContext";
 import axios from "axios";
 
-const Home = () => {
+const Favorite = () => {
   const [articles, setArticles] = useState([]);
   const { userProfile } = useContext(UserContext);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/articles", {
-          headers: {
-            Authorization: `Bearer ${userProfile.access_token}`,
-          },
-        });
-        setArticles(response.data.articles);
+        const response = await axios.get(
+          "http://127.0.0.1:5000/favorite_articles/get",
+          {
+            headers: {
+              Authorization: `Bearer ${userProfile.access_token}`,
+            },
+          }
+        );
+        setArticles(response.data.favorite_articles);
       } catch (error) {
         if (error.response) {
           if (error.response.status === 401) {
@@ -45,4 +48,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Favorite;

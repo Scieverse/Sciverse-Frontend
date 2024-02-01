@@ -31,7 +31,11 @@ const SignIn = () => {
       if (response.data.error) {
         alert("Error: " + response.data.error);
       } else {
-        const userProfile = { ...data, ...response.data };
+        const userProfile = {
+          ...data,
+          ...response.data.user,
+          access_token: response.data.access_token,
+        };
         await logIn(userProfile);
       }
     } catch (error) {
