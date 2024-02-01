@@ -1,10 +1,11 @@
 import SearchBar from "./SearchBar";
-import { getTitleIcon } from "../functions/layoutFct";
-import { FilterProvider } from "../contexts/FilterContext";
-import ProfileButton from "./ProfileButton";
+import { getTitleIcon } from "../../functions/layoutFct";
+import { FilterProvider } from "../../contexts/FilterContext";
+import ProfileButton from "../buttons/ProfileButton";
 import SideMenu from "./SideMenu";
+import BackToMenuBtn from "../buttons/BackToMenuBtn";
 
-function Layout({ title, children,buttonComponent }) {
+function Layout({ title, children, buttonComponent }) {
   const TitleIcon = getTitleIcon(title);
 
   return (
@@ -22,12 +23,17 @@ function Layout({ title, children,buttonComponent }) {
 
         <div className="w-full h-screen flex flex-col justify-start overflow-hidden">
           <div className="w-full bg-orange text-white flex flex-row justify-between p-4 items-center rounded-t-2xl max-lg:p-2">
-            <div className="flex justify-start items-center">
-              <TitleIcon className="w-6 h-6 mx-2 max-lg:w-5" />
-              <p className=" font-bold text-2xl font-poppins max-lg:text-xl">
-                {title}
-              </p>
-            </div>
+            {title !== "Return Button" ? (
+              <div className="flex justify-start items-center">
+                <TitleIcon className="w-6 h-6 mx-2 max-lg:w-5" />
+                <p className=" font-bold text-2xl font-poppins max-lg:text-xl">
+                  {title}
+                </p>
+              </div>
+            ) : (
+              <BackToMenuBtn />
+            )}
+
             {buttonComponent}
           </div>
           <div className="w-full flex-wrap overflow-y-scroll h-full">

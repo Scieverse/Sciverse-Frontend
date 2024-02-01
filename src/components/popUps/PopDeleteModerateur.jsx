@@ -1,8 +1,8 @@
 import danger from './Vector.png';
 
-function PopLogOut() {
+function PopLogOut(Close) {
   return (
-    <div className='h-full w-full flex justif-center bg-slate-500 p-10'>
+    <div className='h-full w-full flex justif-center bg-slate-500 absolute'>
         <div className='lg:h-[250px] h-[210px] w-[450px] bg-white border-none py-2 rounded-[20px] flex flex-col justify-evenly content-center flex-wrap'>
             <div className='flex justify-center lg:h-16 h-12'>
                 <img src={danger} alt="danger logo" />

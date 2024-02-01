@@ -3,7 +3,7 @@ import React , {useState} from 'react';
 
 function PopDeleteModer({Close, Delete}) {
   return (
-    <div className='h-[100vh] w-[100vw] p-10 bg-black bg-opacity-30 absolute'>
+    <div className='h-full w-full bg-black bg-opacity-30 absolute'>
         <div className='lg:h-[250px] h-[210px] w-[450px] bg-white border-none py-2 rounded-[20px] flex flex-col justify-evenly content-center flex-wrap relative top-1/4 left-1/3'>
             <div className='flex justify-center lg:h-16 h-12'>
                 <FaExclamationTriangle className="h-16 w-16"/>

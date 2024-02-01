@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { articlesArray } from "../constants";
-import ArticleCard from "../components/ArticleCard";
+import ArticleCard from "../components/cards/ArticleCard";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -26,8 +26,8 @@ const Home = () => {
 
   return (
     <div className="w-full h-full flex justify-start items-start flex-col bg-grey pt-4 max-md:pt-2">
-      {articles.map((article) => (
-        <ArticleCard article={article} />
+      {articles.map((article,index) => (
+        <ArticleCard article={article} key={index}/>
       ))}
     </div>
   );

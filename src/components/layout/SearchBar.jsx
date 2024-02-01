@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
-import { FilterContext } from "../contexts/FilterContext.jsx";
-import { filterLabel } from "../functions/layoutFct";
+import { FilterContext } from "../../contexts/FilterContext.jsx";
+import { filterLabel } from "../../functions/layoutFct.js";
 
 const SearchBar = () => {
   const { filter, setFilter } = useContext(FilterContext);
