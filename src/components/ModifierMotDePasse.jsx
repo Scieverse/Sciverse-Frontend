@@ -55,11 +55,11 @@ function ModifierMotDePasse(){
             {Display && <Pop Close={Close} />}
             <div className="w-full py-4 px-6 flex flex-col flex-wrap justify-center content-center bg-[#dedede] font-poppins">
                 <form autoComplete="off" action="post" className="w-full flex flex-col flex-wrap justify-center content-center">
-                    <p className=" font-poppins text-xs pl-1 text-[#190B28] my-1">Nouveau Mot de passe:</p>
-                    <input type="password" onChange={handleChangeMdp} className="py-2.5 pl-8 w-1/2 rounded-full bordre-none bg-[#E87D00] bg-opacity-25 text-base mb-4"/>
+                    <p className=" font-poppins text-xs pl-1 text-[#190B28] my-1 sm:w-1/2 w-5/6">Nouveau Mot de passe:</p>
+                    <input type="password" onChange={handleChangeMdp} className="py-2.5 pl-8 sm:w-1/2 rounded-full bordre-none bg-[#E87D00] bg-opacity-25 text-base mb-4 w-full"/>
                     <p className=" font-poppins text-xs pl-1 text-[#190B28] my-1">Confirmation du nouveau Mot de passe:</p>
-                    <input type="password" onChange={handleChangeMdpc} className="py-2.5 pl-8 w-1/2 rounded-full bordre-none bg-[#E87D00] bg-opacity-25 text-base mb-4"/>
-                    <div className='flex justify-evenly mb-4'>
+                    <input type="password" onChange={handleChangeMdpc} className="py-2.5 pl-8 sm:w-1/2 rounded-full bordre-none bg-[#E87D00] bg-opacity-25 text-base mb-4 w-full"/>
+                    <div className='flex justify-evenly mb-4 sm:mt-0 mt-4'>
                         <button onClick={handleAnnuler} className='lg:text-lg text-sm font-poppins font-bold text-white lg:py-2.5 py-2 lg:px-6 px-5 rounded-[20px] shadow-md shadow-[rgba(0,0,0,0.25)] bg-[#A7A7A7]'>Annuler</button>
                         <button onClick={handleSubmit} className='lg:text-lg text-sm font-poppins font-bold text-white lg:py-2.5 py-2 lg:px-6 px-5 rounded-[20px] shadow-md shadow-[rgba(0,0,0,0.25)] bg-[#E87D00]'>Enregistrer</button>
                     </div>
