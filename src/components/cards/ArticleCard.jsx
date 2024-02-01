@@ -24,20 +24,21 @@ function ArticleCard({ article }) {
             },
           }
         );
+        setFavorite((prevFavorite) => !prevFavorite);
       } catch (error) {
-        if (error.response) {
-          if (error.response.status === 401) {
-            alert("Unauthorized: Please check your credentials.");
-          } else {
-            alert("Error: " + error.response.data.error);
-          }
-        } else if (error.request) {
-          alert(
-            "No response received from the server. Please try again later."
-          );
-        } else {
-          alert("An unexpected error occurred. Please try again later.");
-        }
+         if (error.response) {
+           if (error.response.status === 401) {
+             alert("Unauthorized: Please check your credentials.");
+           } else {
+             alert("Error: " + error.response.data.error);
+           }
+         } else if (error.request) {
+           alert(
+             "No response received from the server. Please try again later."
+           );
+         } else {
+           alert("An unexpected error occurred. Please try again later.");
+         }
       }
     } else {
       try {
@@ -49,6 +50,7 @@ function ArticleCard({ article }) {
             },
           }
         );
+        setFavorite((prevFavorite) => !prevFavorite);
       } catch (error) {
         if (error.response) {
           if (error.response.status === 401) {
@@ -65,7 +67,6 @@ function ArticleCard({ article }) {
         }
       }
     }
-    setFavorite((prevFavorite) => !prevFavorite);
   };
 
   return (
@@ -100,7 +101,7 @@ function ArticleCard({ article }) {
                   key={index}
                   className="bg-grey lg:py-2 py-1 lg:px-5 px-3 rounded-full text-xs mr-1.5 shrink-0 flex items-center"
                 >
-                  {mot.keyword}
+                  {mot}
                 </div>
               );
             })}
