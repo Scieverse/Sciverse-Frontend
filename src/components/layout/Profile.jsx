@@ -24,7 +24,7 @@ function Profile(){
                                 </div>
                         </div>
                         <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none mt-3"/>
-                        <div className="w-1/2 flex flex-col items-start content-center justify-between flex-wrap mt-12 pl-3">
+                        <div className="sm:w-1/2 flex flex-col items-start content-center justify-between flex-wrap sm:mt-12 pl-3">
                             <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
                                 <p className="capitalize text-xs font-poppins ">Email</p>
                                 <p className="capitalize text-sm font-poppins">{userProfile.email}</p>

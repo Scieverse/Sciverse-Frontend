@@ -63,7 +63,7 @@ function ArticleDetails(){
                     <p className='text-[#190B28] text-basefont-semibold mr-1'>Mots clés:</p>
                     <p className='text-[#190B28] text-base'>
                         {article.keywords.map(keyword => {
-                            return(keyword.keyword + ", ")
+                            return(keyword + ", ")
                                 }
                         )}
                     </p>
