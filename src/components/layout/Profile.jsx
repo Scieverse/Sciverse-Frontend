@@ -18,27 +18,20 @@ function Profile(){
                 <div className="h-11/12 w-4/5 bg-[#E87D00] bg-opacity-20 p-8 pt-5 rounded-[20px] relative flex flex-col content-center justifyevenly flex-wrap mt-2">
                     <div className="w-[97%] flex content-center justify-evenly flex-wrap mt-2">
                         <div className="flex justify-evelny w-full">
-                                <div className="h-[6,5rem] w-[6,5rem] rounded-full bg-white p-1">
-                                    <img src={userProfile.profilePicture} alt="Profile Picture" className="h-24 w-24 rounded-full border-4 border-[#E87D00] "/>
-                                </div>
                                 <div className="flex justify-center flex-col flex-wrap w-1/2 ml-4">
                                     <p className="capitalize text-xl font-medium font-poppins ">{userProfile.firstName} {userProfile.lastName}</p>
                                     <p className="capitalize text-base font-poppins pl-1">{userProfile.nature}</p>
                                 </div>
                         </div>
                         <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none mt-3"/>
-                        <div className="w-1/2 flex flex-col content-center justify-evenly flex-wrap mt-12 pl-3">
+                        <div className="w-1/2 flex flex-col items-start content-center justify-between flex-wrap mt-12 pl-3">
                             <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
                                 <p className="capitalize text-xs font-poppins ">Email</p>
                                 <p className="capitalize text-sm font-poppins">{userProfile.email}</p>
                             </div>
-                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
-                                <p className="capitalize text-xs font-poppins ">UserName</p>
-                                <p className="capitalize text-sm font-poppins">{userProfile.username}</p>
-                            </div>
                             <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4">
                                 <p className="capitalize text-xs font-poppins ">Role</p>
-                                <p className="capitalize text-sm font-poppins">{userProfile.nature}</p>
+                                <p className="capitalize text-sm font-poppins">{userProfile.role}</p>
                             </div>
                         </div>
                         <div className="w-1/2 flex flex-col content-center justify-evenly flex-wrap mt-2">

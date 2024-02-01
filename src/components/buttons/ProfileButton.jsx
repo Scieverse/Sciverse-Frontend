@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { IoSettings } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
 import { routes } from "../../routes/routes";
+import { CgProfile } from "react-icons/cg";
+
 
 const ProfileButton = () => {
-  const { userProfile, logOut } = useContext(UserContext);
+  const { logOut } = useContext(UserContext);
   const [profileToggle, setProfileToggle] = useState(false);
 
   return (
@@ -17,14 +19,10 @@ const ProfileButton = () => {
         onClick={() => setProfileToggle(!profileToggle)}
       >
         <div className="w-[30px] h-[30px] justify-center items-center">
-          <img
-            src={userProfile.profilePicture}
-            alt=""
-            className="w-full h-full rounded-full object-center object-cover"
-          />
+          <CgProfile className="w-full h-full rounded-full object-center object-cover" />
         </div>
         <p className="font-medium font-poppins max-lg:hidden">
-          {userProfile.username}
+          Profile
         </p>
         <IoIosArrowDown
           className={`max-sm:hidden ${profileToggle ? "rotate-180" : ""}`}

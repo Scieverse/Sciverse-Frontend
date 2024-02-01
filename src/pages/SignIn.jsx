@@ -1,8 +1,8 @@
 import AuthPagesBg from "../components/layout/AuthPagesBg";
-import { logoOrangeBlack, profilePic } from "../assets/icons";
+import { logoOrangeBlack } from "../assets/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { UserContext } from "../contexts/UserContext";
 import {
@@ -11,11 +11,12 @@ import {
   variantSignMaxSm,
 } from "../constants";
 import { routes } from "../routes/routes";
-//import { replaceStackWithRoute } from "../functions/authFct";
+import axios from "axios";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const { logIn, isLoggedIn } = useContext(UserContext);
+
   //const replaceAction = replaceStackWithRoute('/layout');
 
   const [showPassword, setShowPassword] = useState(false);
@@ -23,25 +24,32 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-  let userProfileData;
 
   const handleSignIn = async () => {
-    userProfileData = {
-      email: "votre_email@example.com",
-      password: "votre_mot_de_passe",
-      firstName: "firstName",
-      lastName: "lastName",
-      nature: "admin",
-      username: "imadeddine",
-      profilePicture: profilePic,
-    };
-    await logIn(userProfileData);
-    if (isLoggedIn) navigate(routes.HOME);
-    else
-      alert(
-        "Your email or password are incorrect please check your infrormation"
-      );
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/signin", data);
+      if (response.data.error) {
+        alert("Error: " + response.data.error);
+      } else {
+        const userProfile = { ...data, ...response.data };
+        await logIn(userProfile);
+      }
+    } catch (error) {
+      if (error.response) {
+        alert("Error: " + error.response.data.error);
+      } else if (error.request) {
+        alert("No response received from the server. Please try again later.");
+      } else {
+        alert("An unexpected error occurred. Please try again later.");
+      }
+    }
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(routes.HOME);
+    }
+  }, [isLoggedIn, navigate]);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
