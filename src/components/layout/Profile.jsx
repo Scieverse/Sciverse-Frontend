@@ -15,7 +15,7 @@ function Profile(){
     return (
         <div className="w-full h-full">
             <div className="w-full pb-6 px-6 flex flex-wrap justify-center content-center bg-[rgb(222,222,222)] font-poppins">
-                <div className="h-11/12 w-4/5 bg-[#E87D00] bg-opacity-20 p-8 pt-5 rounded-[20px] relative flex flex-col content-center justifyevenly flex-wrap mt-2">
+                <div className="h-11/12 w- bg-[#E87D00] bg-opacity-20 p-8 pt-5 rounded-[20px] relative flex flex-col content-center justifyevenly flex-wrap mt-2">
                     <div className="w-[97%] flex content-center justify-evenly flex-wrap mt-2">
                         <div className="flex justify-evelny w-full">
                                 <div className="flex justify-center flex-col flex-wrap w-1/2 ml-4">
@@ -37,28 +37,28 @@ function Profile(){
                                 <p className="capitalize text-xs font-poppins ">Field</p>
                                 <p className="capitalize text-sm font-poppins">{userProfile.field}</p>
                             </div>
-                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4">
+                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 sm:ml-4">
                                 <p className="capitalize text-xs font-poppins ">Role</p>
                                 <p className="capitalize text-sm font-poppins">{userProfile.role}</p>
                             </div>
                         </div>
-                        <div className="w-1/2 flex flex-col content-center justify-evenly flex-wrap mt-2">
+                        <div className="sm:w-1/2 flex flex-col content-center justify-evenly flex-wrap mt-2 pl-1">
                             <p className="text-lg font-medium ml-2 mb-3">Settings</p>
                             <button onClick={()=>{ navigate(routes.MODERATOREDIT)}} className="flex flex-wrap content-center w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-3">
                                 <FaUserClock className="h-5 w-5 mr-1"/>
-                                <p className="capitalize text-base font-poppins ml-2">Modifier le compte</p>
+                                <p className="capitalize sm:text-base text-sm font-poppins ml-2">Modifier le compte</p>
                             </button>
                             <button onClick={()=>{ navigate(routes.PASSWORDEDIT)}} className="flex flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-3">
                                 <RiLockPasswordFill className="h-5 w-5 mr-1"/>
-                                <p className="capitalize text-base font-poppins ml-2">Modifier le mot de passe</p>
+                                <p className="capitalize sm:text-base text-sm font-poppins ml-2">Modifier le mot de passe</p>
                             </button>
                             <button className="flex flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-3">
                                 <FaRegUser className="h-5 w-5 mr-1"/>
-                                <p className="capitalize text-base font-poppins ml-2">Supprimer le compte</p>
+                                <p className="capitalize sm:text-base text-sm font-poppins ml-2">Supprimer le compte</p>
                             </button>
                             <button onClick={() => {logOut();}} className="flex flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4">
                                 <CgLogOut  className="h-5 w-5 mr-1"/>
-                                <p className="capitalize text-base font-poppins ml-2">Se déconnecter</p>
+                                <p className="capitalize sm:text-base text-sm font-poppins ml-2">Se déconnecter</p>
                             </button>
                         </div>
                     </div>
