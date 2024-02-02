@@ -68,7 +68,6 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(data);
     if (data.password !== data.confirmPassword)
       alert("Passwords do not match. Please re-enter your password.");
     else {

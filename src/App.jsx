@@ -43,7 +43,7 @@ function App() {
                   <Layout
                     title={"Home"}
                     buttonComponent={
-                      userProfile && userProfile.nature === "admin" ? (
+                      userProfile && userProfile.role === "admin" ? (
                         <AddArticleBtn />
                       ) : null
                     }
@@ -85,7 +85,7 @@ function App() {
                   <Layout
                     title={"Moderators"}
                     buttonComponent={
-                      userProfile && userProfile.nature === "admin" ? (
+                      userProfile && userProfile.role === "admin" ? (
                         <AddModeratorBtn />
                       ) : null
                     }
@@ -138,8 +138,8 @@ function App() {
                     title={"Return Button"}
                     buttonComponent={
                       userProfile &&
-                      (userProfile.nature === "admin" ||
-                        userProfile.nature === "Moderateur") ? (
+                      (userProfile.role === "admin" ||
+                        userProfile.role === "Moderateur") ? (
                         <EditArticleBtn />
                       ) : null
                     }
