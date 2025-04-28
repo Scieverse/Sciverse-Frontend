@@ -21,6 +21,7 @@ import AddModerator from "./pages/AddModerator";
 import AddModeratorBtn from "./components/buttons/AddModeratorBtn";
 import EditArticleBtn from "./components/buttons/EditArticleBtn";
 import EditArticle from "./pages/EditArticle";
+import Favorite from "./pages/Favorite";
 
 function App() {
   const location = useLocation();
@@ -42,7 +43,7 @@ function App() {
                   <Layout
                     title={"Home"}
                     buttonComponent={
-                      userProfile && userProfile.nature === "admin" ? (
+                      userProfile && userProfile.role === "admin" ? (
                         <AddArticleBtn />
                       ) : null
                     }
@@ -55,7 +56,13 @@ function App() {
               <Route
                 exact
                 path={routes.FAVORITE}
-                element={<Layout title={"Favorite"} />}
+                element={
+                  <Layout
+                    title={"Favorite"}
+                  >
+                    <Favorite />
+                  </Layout>
+                }
               />
               <Route
                 exact
@@ -78,7 +85,7 @@ function App() {
                   <Layout
                     title={"Moderators"}
                     buttonComponent={
-                      userProfile && userProfile.nature === "admin" ? (
+                      userProfile && userProfile.role === "admin" ? (
                         <AddModeratorBtn />
                       ) : null
                     }
@@ -131,8 +138,8 @@ function App() {
                     title={"Return Button"}
                     buttonComponent={
                       userProfile &&
-                      (userProfile.nature === "admin" ||
-                        userProfile.nature === "Moderateur") ? (
+                      (userProfile.role === "admin" ||
+                        userProfile.role === "Moderateur") ? (
                         <EditArticleBtn />
                       ) : null
                     }

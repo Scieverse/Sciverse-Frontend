@@ -18,27 +18,28 @@ function Profile(){
                 <div className="h-11/12 w- bg-[#E87D00] bg-opacity-20 p-8 pt-5 rounded-[20px] relative flex flex-col content-center justifyevenly flex-wrap mt-2">
                     <div className="w-[97%] flex content-center justify-evenly flex-wrap mt-2">
                         <div className="flex justify-evelny w-full">
-                                <div className="sm:h-[6,5rem] sm:w-[6,5rem] h-[4rem] w-[4rem] rounded-full bg-white sm:p-1">
-                                    <img src={userProfile.profilePicture} alt="Profile Picture" className="sm:h-14 sm:w-16 h-16 rounded-full border-4 border-[#E87D00] "/>
-                                </div>
-                                <div className="flex justify-center flex-col flex-wrap sm:w-1/2 ml-4">
-                                    <p className="capitalize sm:text-xl text-base font-medium font-poppins ">{userProfile.firstName} {userProfile.lastName}</p>
-                                    <p className="capitalize sm:text-base text-xs font-poppins pl-1">{userProfile.nature}</p>
+                                <div className="flex justify-center flex-col flex-wrap w-1/2 ml-4">
+                                    <p className="capitalize text-xl font-medium font-poppins ">{userProfile.firstName} {userProfile.lastName}</p>
+                                    <p className="capitalize text-base font-poppins pl-1">{userProfile.nature}</p>
                                 </div>
                         </div>
                         <hr className="bg-[#E87D00] h-1 sm:h-0.5 w-full rounded-full border-none mt-3"/>
-                        <div className="sm:w-1/2 flex flex-col content-center justify-evenly flex-wrap sm:mt-12 mt-4 sm:pl-3">
-                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 sm:ml-4  mb-2">
+                        <div className="sm:w-1/2 flex flex-col items-start content-center justify-between flex-wrap sm:mt-12 pl-3">
+                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
                                 <p className="capitalize text-xs font-poppins ">Email</p>
                                 <p className="capitalize text-sm font-poppins">{userProfile.email}</p>
                             </div>
-                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 sm:ml-4 mb-2">
-                                <p className="capitalize text-xs font-poppins ">UserName</p>
-                                <p className="capitalize text-sm font-poppins">{userProfile.username}</p>
+                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
+                                <p className="capitalize text-xs font-poppins ">Nature</p>
+                                <p className="capitalize text-sm font-poppins">{userProfile.nature}</p>
+                            </div>
+                            <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 ml-4 mb-2">
+                                <p className="capitalize text-xs font-poppins ">Field</p>
+                                <p className="capitalize text-sm font-poppins">{userProfile.field}</p>
                             </div>
                             <div className="flex justify-center flex-col flex-wrap w-full border-l-[3px] border-l-[#E87D00] pl-3 sm:ml-4">
                                 <p className="capitalize text-xs font-poppins ">Role</p>
-                                <p className="capitalize text-sm font-poppins">{userProfile.nature}</p>
+                                <p className="capitalize text-sm font-poppins">{userProfile.role}</p>
                             </div>
                         </div>
                         <div className="sm:w-1/2 flex flex-col content-center justify-evenly flex-wrap mt-2 pl-1">

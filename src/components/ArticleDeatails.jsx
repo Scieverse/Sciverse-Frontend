@@ -52,7 +52,7 @@ function ArticleDetails(){
                     <p className='text-[#190B28] text-base '>
                         {article.authors.map(auteur =>{
                             return(auteur.institutions.map(institution=>{
-                                return(institution.institutions_name + " ")
+                                return(institution.institution_name + ", ")
                             }));
                         })}
                     </p>

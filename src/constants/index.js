@@ -14,7 +14,7 @@ export const filterInitialization = [
   { checked: true, label: "Title", id: "title", value: "" },
   { checked: true, label: "Author", id: "author", value: "" },
   { checked: true, label: "Institution", id: "institution", value: "" },
-  { checked: true, label: "Keywords", id: "keyWords", value: "" },
+  { checked: true, label: "Keywords", id: "keywords", value: "" },
   { checked: true, label: "References", id: "references", value: "" },
 ];
 

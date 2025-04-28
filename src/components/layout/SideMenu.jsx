@@ -8,7 +8,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 const SideMenu = ({title}) => {
       const { userProfile } = useContext(UserContext);
-      const { nature } = userProfile;
+      const { role } = userProfile;
       //Getting page title and icon
       const [selectedItem, setSelectedItem] = useState(title);
   return (
@@ -37,7 +37,7 @@ const SideMenu = ({title}) => {
             );
           })}
 
-          {nature === "admin" ? (
+          {role === "admin" ? (
             <Link
               className={`menu-text ${
                 selectedItem === "Moderators" ? "text-orange font-bold" : ""
